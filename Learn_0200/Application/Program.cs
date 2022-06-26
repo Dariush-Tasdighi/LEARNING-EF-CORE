@@ -1,5 +1,5 @@
 ﻿// **************************************************
-// Solution (1)
+// Solution (0)
 // **************************************************
 namespace Application
 {
@@ -11,31 +11,56 @@ namespace Application
 
 		private static void Main()
 		{
-			CreateCategory();
-		}
+			System.Console.WriteLine
+				(value: $"{nameof(int.MaxValue)}: {int.MaxValue:#,##0}");
 
-		/// <summary>
-		/// CRUD:
-		/// C -> Create | U -> Update | D -> Delte | R -> Retrieve
-		///
-		/// Retrieve:
-		///		Zero or One: FirstOrDefault()
-		///		Zero Or Many: ToList()
-		/// </summary>
-		private static void CreateCategory()
-		{
-			Models.DatabaseContext databaseContext = new Models.DatabaseContext();
-
-			Models.Category category = new Models.Category();
-
-			category.Name = "My Category";
-
-			databaseContext.Categories.Add(entity: category);
-
-			databaseContext.SaveChanges();
+			System.Console.WriteLine
+				(value: $"{nameof(long.MaxValue)}: {long.MaxValue:#,##0}");
 		}
 	}
 }
+// **************************************************
+// /Solution (0)
+// **************************************************
+
+// **************************************************
+// Solution (1)
+// **************************************************
+//namespace Application
+//{
+//	internal static class Program : object
+//	{
+//		static Program()
+//		{
+//		}
+
+//		private static void Main()
+//		{
+//			CreateCategory();
+//		}
+
+//		/// <summary>
+//		/// CRUD:
+//		/// C -> Create | U -> Update | D -> Delte | R -> Retrieve
+//		///
+//		/// Retrieve:
+//		///		Zero or One: FirstOrDefault()
+//		///		Zero Or Many: ToList()
+//		/// </summary>
+//		private static void CreateCategory()
+//		{
+//			Models.DatabaseContext databaseContext = new Models.DatabaseContext();
+
+//			Models.Category category = new Models.Category();
+
+//			category.Name = "My Category";
+
+//			databaseContext.Categories.Add(entity: category);
+
+//			databaseContext.SaveChanges();
+//		}
+//	}
+//}
 // **************************************************
 // /Solution (1)
 // **************************************************
@@ -325,15 +350,26 @@ namespace Application
 //				int id =
 //					category.Id;
 
+//				// خطا می‌دهد EF Core در
+//				// مشکلی نداشت و توجهی به مقدار ما نمی‌کرد EF در
+//				//category.Id = 12345;
+
 //				databaseContext.SaveChanges();
 
 //				//int affectedRows =
 //				//	databaseContext.SaveChanges();
 
-//				id = category.Id;
+//				id =
+//					category.Id;
 //			}
 //			catch (System.Exception ex)
 //			{
+//				//ex.InnerException.Message
+
+//				// Cannot insert explicit value for identity column
+//				// in table 'Categories' when IDENTITY_INSERT is set
+//				// to OFF.
+
 //				System.Console.WriteLine(value: ex.Message);
 //			}
 //			finally
