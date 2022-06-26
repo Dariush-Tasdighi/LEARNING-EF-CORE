@@ -1,24 +1,24 @@
 ﻿// **************************************************
 // Solution (0)
 // **************************************************
-namespace Application
-{
-	internal static class Program : object
-	{
-		static Program()
-		{
-		}
+//namespace Application
+//{
+//	internal static class Program : object
+//	{
+//		static Program()
+//		{
+//		}
 
-		private static void Main()
-		{
-			System.Console.WriteLine
-				(value: $"{nameof(int.MaxValue)}: {int.MaxValue:#,##0}");
+//		private static void Main()
+//		{
+//			System.Console.WriteLine
+//				(value: $"{nameof(int.MaxValue)}: {int.MaxValue:#,##0}");
 
-			System.Console.WriteLine
-				(value: $"{nameof(long.MaxValue)}: {long.MaxValue:#,##0}");
-		}
-	}
-}
+//			System.Console.WriteLine
+//				(value: $"{nameof(long.MaxValue)}: {long.MaxValue:#,##0}");
+//		}
+//	}
+//}
 // **************************************************
 // /Solution (0)
 // **************************************************
@@ -41,7 +41,7 @@ namespace Application
 
 //		/// <summary>
 //		/// CRUD:
-//		/// C -> Create | U -> Update | D -> Delte | R -> Retrieve
+//		/// C -> Create | U -> Update | D -> Delete | R -> Retrieve
 //		///
 //		/// Retrieve:
 //		///		Zero or One: FirstOrDefault()
@@ -517,7 +517,7 @@ namespace Application
 //				//var categories =
 //				//	await
 //				//	databaseContext.Categories
-//				//	// ToList() -> using Microsoft.EntityFrameworkCore;
+//				//	// ToListAsync -> using Microsoft.EntityFrameworkCore;
 //				//	.ToListAsync()
 //				//	;
 
@@ -525,7 +525,7 @@ namespace Application
 //					await
 //					databaseContext.Categories
 //					.OrderBy(current => current.Id)
-//					// ToList() -> using Microsoft.EntityFrameworkCore;
+//					// ToListAsync -> using Microsoft.EntityFrameworkCore;
 //					.ToListAsync()
 //					;
 
@@ -558,302 +558,375 @@ namespace Application
 // **************************************************
 // Solution (10)
 // **************************************************
-//using System.Linq;
-//using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
-//namespace Application
-//{
-//	internal static class Program : object
-//	{
-//		static Program()
-//		{
-//		}
+namespace Application
+{
+	internal static class Program : object
+	{
+		static Program()
+		{
+		}
 
-//		public static async System.Threading.Tasks.Task Main()
-//		{
-//			await CreateCategoryAsync();
-//			await DisplayCategoriesAsync();
+		public static async System.Threading.Tasks.Task Main()
+		{
+			await CreateCategoryAsync();
+			await DisplayCategoriesAsync();
 
-//			// New
-//			await UpdateTheFirstCategory();
+			// New
+			await UpdateTheFirstCategory();
 
-//			await DisplayCategoriesAsync();
+			await DisplayCategoriesAsync();
 
-//			// New
-//			await UpdateSomeCategories();
+			// New
+			await UpdateSomeCategories();
 
-//			await DisplayCategoriesAsync();
+			await DisplayCategoriesAsync();
 
-//			// New
-//			await DeleteTheFirstCategory();
+			// New
+			await DeleteTheFirstCategory();
 
-//			await DisplayCategoriesAsync();
+			await DisplayCategoriesAsync();
 
-//			// New
-//			await DeleteAllCategories();
+			// New
+			await DeleteAllCategories();
 
-//			await DisplayCategoriesAsync();
-//		}
+			await DisplayCategoriesAsync();
+		}
 
-//		private static async System.Threading.Tasks.Task CreateCategoryAsync()
-//		{
-//			Models.DatabaseContext? databaseContext = null;
+		private static async System.Threading.Tasks.Task CreateCategoryAsync()
+		{
+			Models.DatabaseContext? databaseContext = null;
 
-//			try
-//			{
-//				databaseContext =
-//					new Models.DatabaseContext();
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
 
-//				var category =
-//					new Models.Category
-//					{
-//						Name = "My Category",
-//					};
+				var category =
+					new Models.Category
+					{
+						Name = "My Category",
+					};
 
-//				databaseContext.Categories.Add(category);
+				databaseContext.Categories.Add(category);
 
-//				int affectedRows =
-//					await databaseContext.SaveChangesAsync();
-//			}
-//			catch (System.Exception ex)
-//			{
-//				System.Console.WriteLine(value: ex.Message);
-//			}
-//			finally
-//			{
-//				if (databaseContext != null)
-//				{
-//					await databaseContext.DisposeAsync();
-//				}
-//			}
-//		}
+				int affectedRows =
+					await databaseContext.SaveChangesAsync();
+			}
+			catch (System.Exception ex)
+			{
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
 
-//		private static async System.Threading.Tasks.Task DisplayCategoriesAsync()
-//		{
-//			Models.DatabaseContext? databaseContext = null;
+		private static async System.Threading.Tasks.Task DisplayCategoriesAsync()
+		{
+			Models.DatabaseContext? databaseContext = null;
 
-//			try
-//			{
-//				databaseContext =
-//					new Models.DatabaseContext();
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
 
-//				var categories =
-//					await
-//					databaseContext.Categories
-//					.OrderBy(current => current.Id)
-//					// ToList() -> using Microsoft.EntityFrameworkCore;
-//					.ToListAsync()
-//					;
+				var categories =
+					await
+					databaseContext.Categories
+					.OrderBy(current => current.Id)
+					// ToListAsync -> using Microsoft.EntityFrameworkCore;
+					.ToListAsync()
+					;
 
-//				foreach (var item in categories)
-//				{
-//					string message =
-//						$"Id: {item.Id} - Name: {item.Name}";
+				foreach (var item in categories)
+				{
+					string message =
+						$"Id: {item.Id} - Name: {item.Name}";
 
-//					System.Console.WriteLine(value: message);
-//				}
-//			}
-//			catch (System.Exception ex)
-//			{
-//				System.Console.WriteLine(value: ex.Message);
-//			}
-//			finally
-//			{
-//				if (databaseContext != null)
-//				{
-//					await databaseContext.DisposeAsync();
-//				}
-//			}
-//		}
+					System.Console.WriteLine(value: message);
+				}
+			}
+			catch (System.Exception ex)
+			{
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
 
-//		/// <summary>
-//		/// New
-//		/// </summary>
-//		private static async System.Threading.Tasks.Task UpdateTheFirstCategory()
-//		{
-//			Models.DatabaseContext? databaseContext = null;
+		/// <summary>
+		/// New
+		/// </summary>
+		private static async System.Threading.Tasks.Task UpdateTheFirstCategory()
+		{
+			Models.DatabaseContext? databaseContext = null;
 
-//			try
-//			{
-//				databaseContext =
-//					new Models.DatabaseContext();
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
 
-//				//var category =
-//				//	databaseContext.Categories
-//				//	.FirstOrDefault();
+				//var category =
+				//	databaseContext.Categories
+				//	.FirstOrDefault();
 
-//				//var category =
-//				//	await
-//				//	databaseContext.Categories
-//				//	.FirstOrDefaultAsync();
+				//var category =
+				//	await
+				//	databaseContext.Categories
+				//	.FirstOrDefaultAsync();
 
-//				var category =
-//					await
-//					databaseContext.Categories
-//					.Where(current => current.Id < 100)
-//					.FirstOrDefaultAsync();
+				var category =
+					await
+					databaseContext.Categories
+					.Where(current => current.Id < 100)
+					.FirstOrDefaultAsync();
 
-//				if (category == null)
-//				{
-//					System.Console.WriteLine
-//						(value: "There is not any category!");
+				if (category == null)
+				{
+					System.Console.WriteLine
+						(value: "There is not any category!");
 
-//					return;
-//				}
+					return;
+				}
 
-//				category.Name =
-//					$"{category.Name}_{category.Id}";
+				category.Name =
+					$"{category.Name}_{category.Id}";
 
-//				int affectedRows =
-//					await databaseContext.SaveChangesAsync();
-//			}
-//			catch (System.Exception ex)
-//			{
-//				System.Console.WriteLine(value: ex.Message);
-//			}
-//			finally
-//			{
-//				if (databaseContext != null)
-//				{
-//					await databaseContext.DisposeAsync();
-//				}
-//			}
-//		}
+				int affectedRows =
+					await databaseContext.SaveChangesAsync();
 
-//		/// <summary>
-//		/// New
-//		/// </summary>
-//		private static async System.Threading.Tasks.Task UpdateSomeCategories()
-//		{
-//			Models.DatabaseContext? databaseContext = null;
+				//var theCategory =
+				//	databaseContext.Categories
+				//	.LastOrDefault();
 
-//			try
-//			{
-//				databaseContext =
-//					new Models.DatabaseContext();
+				//var theCategory =
+				//	await
+				//	databaseContext.Categories
+				//	.LastOrDefaultAsync();
 
-//				var categories =
-//					await
-//					databaseContext.Categories
-//					.Where(current => current.Id < 100)
-//					.OrderBy(current => current.Id)
-//					.ToListAsync();
+				// اگر چند تا پیدا کند، اولین آن را برمی‌گرداند
+				// ولی اگر پیدا نکند خطا می‌دهد
+				//var theCategory =
+				//	databaseContext.Categories
+				//	.First();
 
-//				foreach (var item in categories)
-//				{
-//					item.Name =
-//						$"{item.Name}_{item.Id}";
+				//var theCategory =
+				//	await
+				//	databaseContext.Categories
+				//	.FirstAsync();
 
-//					//int affectedRows =
-//					//	await databaseContext.SaveChangesAsync();
-//				}
+				// اگر چند تا پیدا کند، آخرین آن را برمی‌گرداند
+				// ولی اگر پیدا نکند خطا می‌دهد
+				//var theCategory =
+				//	databaseContext.Categories
+				//	.Last();
 
-//				int affectedRows =
-//					await databaseContext.SaveChangesAsync();
-//			}
-//			catch (System.Exception ex)
-//			{
-//				System.Console.WriteLine(value: ex.Message);
-//			}
-//			finally
-//			{
-//				if (databaseContext != null)
-//				{
-//					await databaseContext.DisposeAsync();
-//				}
-//			}
-//		}
+				//var theCategory =
+				//	databaseContext.Categories
+				//	.LastAsync();
 
-//		/// <summary>
-//		/// New
-//		/// </summary>
-//		private static async System.Threading.Tasks.Task DeleteTheFirstCategory()
-//		{
-//			Models.DatabaseContext? databaseContext = null;
+				// اگر فقط یکی پیدا کند، آن‌را برمی‌گرداند
+				// اگر چند تا پیدا کند، خطا می‌دهد
+				// اگر هم پیدا نکند، خطا می‌دهد
+				//var theCategory =
+				//	databaseContext.Categories
+				//	.Single();
 
-//			try
-//			{
-//				databaseContext =
-//					new Models.DatabaseContext();
+				//var theCategory =
+				//	databaseContext.Categories
+				//	.SingleAsync();
 
-//				var category =
-//					await
-//					databaseContext.Categories
-//					.OrderBy(current => current.Id)
-//					.FirstOrDefaultAsync();
+				// اگر فقط یکی پیدا کند، آن‌را برمی‌گرداند
+				// اگر پیدا نکند، نال برمی‌گرداند
+				// اگر چند تا پیدا کند، خطا می‌دهد
+				//var theCategory =
+				//	databaseContext.Categories
+				//	.SingleOrDefault();
 
-//				if (category == null)
-//				{
-//					System.Console.WriteLine
-//						(value: "There is not any category!");
+				//var theCategory =
+				//	databaseContext.Categories
+				//	.SingleOrDefaultAsync();
+			}
+			catch (System.Exception ex)
+			{
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
 
-//					return;
-//				}
+		/// <summary>
+		/// New
+		/// </summary>
+		private static async System.Threading.Tasks.Task UpdateSomeCategories()
+		{
+			Models.DatabaseContext? databaseContext = null;
 
-//				databaseContext.Categories.Remove(entity: category);
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
 
-//				// New in .NET Core
-//				//databaseContext.Remove(entity: category);
+				var categories =
+					await
+					databaseContext.Categories
+					.Where(current => current.Id < 100)
+					.OrderBy(current => current.Id)
+					// ToListAsync -> using Microsoft.EntityFrameworkCore;
+					.ToListAsync();
 
-//				int affectedRows =
-//					await databaseContext.SaveChangesAsync();
-//			}
-//			catch (System.Exception ex)
-//			{
-//				System.Console.WriteLine(value: ex.Message);
-//			}
-//			finally
-//			{
-//				if (databaseContext != null)
-//				{
-//					await databaseContext.DisposeAsync();
-//				}
-//			}
-//		}
+				foreach (var item in categories)
+				{
+					item.Name =
+						$"{item.Name}_{item.Id}";
 
-//		/// <summary>
-//		/// New
-//		/// </summary>
-//		private static async System.Threading.Tasks.Task DeleteAllCategories()
-//		{
-//			Models.DatabaseContext? databaseContext = null;
+					//int affectedRows =
+					//	await databaseContext.SaveChangesAsync();
+				}
 
-//			try
-//			{
-//				databaseContext =
-//					new Models.DatabaseContext();
+				int affectedRows =
+					await databaseContext.SaveChangesAsync();
+			}
+			catch (System.Exception ex)
+			{
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
 
-//				var categories =
-//					await
-//					databaseContext.Categories
-//					.ToListAsync()
-//					;
+		/// <summary>
+		/// New
+		/// </summary>
+		private static async System.Threading.Tasks.Task DeleteTheFirstCategory()
+		{
+			Models.DatabaseContext? databaseContext = null;
 
-//				foreach (var item in categories)
-//				{
-//					databaseContext.Categories.Remove(item);
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
 
-//					//int affectedRows =
-//					//	await databaseContext.SaveChangesAsync();
-//				}
+				var category =
+					await
+					databaseContext.Categories
+					.OrderBy(current => current.Id)
+					.FirstOrDefaultAsync();
 
-//				int affectedRows =
-//					await databaseContext.SaveChangesAsync();
-//			}
-//			catch (System.Exception ex)
-//			{
-//				System.Console.WriteLine(value: ex.Message);
-//			}
-//			finally
-//			{
-//				if (databaseContext != null)
-//				{
-//					await databaseContext.DisposeAsync();
-//				}
-//			}
-//		}
-//	}
-//}
+				if (category == null)
+				{
+					System.Console.WriteLine
+						(value: "There is not any category!");
+
+					return;
+				}
+
+				databaseContext.Categories.Remove(entity: category);
+
+				//databaseContext.Categories.RemoveRange(entities: category);
+
+				// New in .NET Core
+				//databaseContext.Remove(entity: category);
+
+				// New in .NET Core
+				//databaseContext.RemoveRange(entities: category);
+
+				int affectedRows =
+					await databaseContext.SaveChangesAsync();
+			}
+			catch (System.Exception ex)
+			{
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
+
+		/// <summary>
+		/// New
+		/// </summary>
+		private static async System.Threading.Tasks.Task DeleteAllCategories()
+		{
+			Models.DatabaseContext? databaseContext = null;
+
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
+
+				var categories =
+					await
+					databaseContext.Categories
+					// ToListAsync -> using Microsoft.EntityFrameworkCore;
+					.ToListAsync()
+					;
+
+				// **************************************************
+				// **************************************************
+				// **************************************************
+				foreach (var item in categories)
+				{
+					databaseContext.Categories.Remove(item);
+
+					//int affectedRows =
+					//	await databaseContext.SaveChangesAsync();
+				}
+				// **************************************************
+
+				// **************************************************
+				//databaseContext.RemoveRange(entities: categories);
+				// **************************************************
+
+				// **************************************************
+				//databaseContext.Categories.RemoveRange(entities: categories);
+				// **************************************************
+				// **************************************************
+				// **************************************************
+
+				int affectedRows =
+					await databaseContext.SaveChangesAsync();
+			}
+			catch (System.Exception ex)
+			{
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
+	}
+}
 // **************************************************
 // /Solution (10)
 // **************************************************
