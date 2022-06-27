@@ -1,24 +1,24 @@
 ﻿// **************************************************
 // Solution (0)
 // **************************************************
-namespace Application
-{
-	internal static class Program : object
-	{
-		static Program()
-		{
-		}
+//namespace Application
+//{
+//	internal static class Program : object
+//	{
+//		static Program()
+//		{
+//		}
 
-		private static void Main()
-		{
-			System.Console.WriteLine
-				(value: $"Max Value of 'int': {int.MaxValue:#,##0}");
+//		private static void Main()
+//		{
+//			System.Console.WriteLine
+//				(value: $"Max Value of 'int': {int.MaxValue:#,##0}");
 
-			System.Console.WriteLine
-				(value: $"Max Value of 'long': {long.MaxValue:#,##0}");
-		}
-	}
-}
+//			System.Console.WriteLine
+//				(value: $"Max Value of 'long': {long.MaxValue:#,##0}");
+//		}
+//	}
+//}
 // **************************************************
 // /Solution (0)
 // **************************************************
@@ -289,85 +289,85 @@ namespace Application
 // **************************************************
 // Solution (6)
 // **************************************************
-//namespace Application
-//{
-//	internal static class Program : object
-//	{
-//		static Program()
-//		{
-//		}
+namespace Application
+{
+	internal static class Program : object
+	{
+		static Program()
+		{
+		}
 
-//		private static void Main()
-//		{
-//			CreateCategory();
-//		}
+		private static void Main()
+		{
+			CreateCategory();
+		}
 
-//		private static void CreateCategory()
-//		{
-//			Models.DatabaseContext? databaseContext = null;
+		private static void CreateCategory()
+		{
+			Models.DatabaseContext? databaseContext = null;
 
-//			try
-//			{
-//				databaseContext =
-//					new Models.DatabaseContext();
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
 
-//				var category =
-//					new Models.Category
-//					{
-//						Name = "My Category",
-//					};
+				var category =
+					new Models.Category
+					{
+						Name = "My Category",
+					};
 
-//				databaseContext.Categories.Add(entity: category);
+				databaseContext.Categories.Add(entity: category);
 
-//				// Type: Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry
-//				//var entityEntry =
-//				//	databaseContext.Categories.Add(entity: category);
+				// Type: Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry
+				//var entityEntry =
+				//	databaseContext.Categories.Add(entity: category);
 
-//				// New in EF Core
-//				//databaseContext.Add(entity: category);
+				// New in EF Core
+				//databaseContext.Add(entity: category);
 
-//				// New in EF Core
-//				// Type: Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry
-//				//var entityEntry =
-//				//	databaseContext.Add(entity: category);
+				// New in EF Core
+				// Type: Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry
+				//var entityEntry =
+				//	databaseContext.Add(entity: category);
 
-//				int id =
-//					category.Id;
+				int id =
+					category.Id;
 
-//				// خطا می‌دهد EF Core در
-//				// مشکلی نداشت و صرفا توجهی به مقدار ما نمی‌کرد EF ولی در
-//				//category.Id = 12345;
+				// خطا می‌دهد EF Core در
+				// مشکلی نداشت و صرفا توجهی به مقدار ما نمی‌کرد EF ولی در
+				//category.Id = 12345;
 
-//				databaseContext.SaveChanges();
+				databaseContext.SaveChanges();
 
-//				//int affectedRows =
-//				//	databaseContext.SaveChanges();
+				//int affectedRows =
+				//	databaseContext.SaveChanges();
 
-//				id =
-//					category.Id;
-//			}
-//			catch (System.Exception ex)
-//			{
-//				// Log Error!
+				id =
+					category.Id;
+			}
+			catch (System.Exception ex)
+			{
+				// Log Error!
 
-//				//ex.InnerException.Message
+				//ex.InnerException.Message
 
-//				// Cannot insert explicit value for identity column
-//				// in table 'Categories' when IDENTITY_INSERT is set
-//				// to OFF.
+				// Cannot insert explicit value for identity column
+				// in table 'Categories' when IDENTITY_INSERT is set
+				// to OFF.
 
-//				System.Console.WriteLine(value: ex.Message);
-//			}
-//			finally
-//			{
-//				if (databaseContext != null)
-//				{
-//					databaseContext.Dispose();
-//				}
-//			}
-//		}
-//	}
-//}
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					databaseContext.Dispose();
+				}
+			}
+		}
+	}
+}
 // **************************************************
 // /Solution (6)
 // **************************************************
@@ -406,7 +406,7 @@ namespace Application
 //					};
 
 //				var entityEntry =
-//					databaseContext.Categories.Add(category);
+//					databaseContext.Categories.Add(entity: category);
 
 //				int affectedRows =
 //					await databaseContext.SaveChangesAsync();
@@ -468,7 +468,7 @@ namespace Application
 //					};
 
 //				var entityEntry =
-//					databaseContext.Categories.Add(category);
+//					databaseContext.Categories.Add(entity: category);
 
 //				int affectedRows =
 //					await databaseContext.SaveChangesAsync();
@@ -587,22 +587,22 @@ namespace Application
 //			await DisplayCategoriesAsync();
 
 //			// New
-//			await UpdateTheFirstCategory();
+//			await UpdateTheFirstCategoryAsync();
 
 //			await DisplayCategoriesAsync();
 
 //			// New
-//			await UpdateSomeCategories();
+//			await UpdateSomeCategoriesAsync();
 
 //			await DisplayCategoriesAsync();
 
 //			// New
-//			await DeleteTheFirstCategory();
+//			await DeleteTheFirstCategoryAsync();
 
 //			await DisplayCategoriesAsync();
 
 //			// New
-//			await DeleteAllCategories();
+//			await DeleteAllCategoriesAsync();
 
 //			await DisplayCategoriesAsync();
 //		}
@@ -623,7 +623,7 @@ namespace Application
 //					};
 
 //				var entityEntry =
-//					databaseContext.Categories.Add(category);
+//					databaseContext.Categories.Add(entity: category);
 
 //				int affectedRows =
 //					await databaseContext.SaveChangesAsync();
@@ -686,7 +686,7 @@ namespace Application
 //		/// <summary>
 //		/// New
 //		/// </summary>
-//		private static async System.Threading.Tasks.Task UpdateTheFirstCategory()
+//		private static async System.Threading.Tasks.Task UpdateTheFirstCategoryAsync()
 //		{
 //			Models.DatabaseContext? databaseContext = null;
 
@@ -813,7 +813,7 @@ namespace Application
 //		/// <summary>
 //		/// New
 //		/// </summary>
-//		private static async System.Threading.Tasks.Task UpdateSomeCategories()
+//		private static async System.Threading.Tasks.Task UpdateSomeCategoriesAsync()
 //		{
 //			Models.DatabaseContext? databaseContext = null;
 
@@ -859,7 +859,7 @@ namespace Application
 //		/// <summary>
 //		/// New
 //		/// </summary>
-//		private static async System.Threading.Tasks.Task DeleteTheFirstCategory()
+//		private static async System.Threading.Tasks.Task DeleteTheFirstCategoryAsync()
 //		{
 //			Models.DatabaseContext? databaseContext = null;
 
@@ -925,7 +925,7 @@ namespace Application
 //		/// <summary>
 //		/// New
 //		/// </summary>
-//		private static async System.Threading.Tasks.Task DeleteAllCategories()
+//		private static async System.Threading.Tasks.Task DeleteAllCategoriesAsync()
 //		{
 //			Models.DatabaseContext? databaseContext = null;
 
