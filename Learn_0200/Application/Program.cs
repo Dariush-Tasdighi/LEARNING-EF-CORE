@@ -1,24 +1,24 @@
 ﻿// **************************************************
 // Solution (0)
 // **************************************************
-namespace Application
-{
-	internal static class Program : object
-	{
-		static Program()
-		{
-		}
+//namespace Application
+//{
+//	internal static class Program : object
+//	{
+//		static Program()
+//		{
+//		}
 
-		private static void Main()
-		{
-			System.Console.WriteLine
-				(value: $"Max Value of 'int': {int.MaxValue:#,##0}");
+//		private static void Main()
+//		{
+//			System.Console.WriteLine
+//				(value: $"Max Value of 'int': {int.MaxValue:#,##0}");
 
-			System.Console.WriteLine
-				(value: $"Max Value of 'long': {long.MaxValue:#,##0}");
-		}
-	}
-}
+//			System.Console.WriteLine
+//				(value: $"Max Value of 'long': {long.MaxValue:#,##0}");
+//		}
+//	}
+//}
 // **************************************************
 // /Solution (0)
 // **************************************************
@@ -44,7 +44,7 @@ namespace Application
 //		/// C -> Create | U -> Update | D -> Delete | R -> Retrieve
 //		///
 //		/// Retrieve:
-//		///		Zero or One: FirstOrDefault()
+//		///		Zero or One : FirstOrDefault()
 //		///		Zero Or Many: ToList()
 //		/// </summary>
 //		private static void CreateCategory()
@@ -89,11 +89,30 @@ namespace Application
 //			// **************************************************
 
 //			// **************************************************
+//			//int x = 1;
+
+//			//int x;
+//			//x = 1;
+
+//			//var x = 1;
+
+//			//var x; // Compile Error!
+//			//x = 1;
+
+//			//var x = null; // Compile Error!
+//			// **************************************************
+
+//			// **************************************************
 //			// **************************************************
 //			// **************************************************
 //			//Models.Category category = new Models.Category();
 
 //			//category.Name = "My Category";
+//			// **************************************************
+
+//			// **************************************************
+//			//Models.Category category =
+//			//	new Models.Category() { Name = "My Category" };
 //			// **************************************************
 
 //			// **************************************************
@@ -214,96 +233,61 @@ namespace Application
 // **************************************************
 // Solution (5)
 // **************************************************
-//namespace Application
-//{
-//	internal static class Program : object
-//	{
-//		static Program()
-//		{
-//		}
+namespace Application
+{
+	internal static class Program : object
+	{
+		static Program()
+		{
+		}
 
-//		private static void Main()
-//		{
-//			CreateCategory();
-//		}
+		private static void Main()
+		{
+			CreateCategory();
+		}
 
-//		private static void CreateCategory()
-//		{
-//			using var databaseContext =
-//				new Models.DatabaseContext();
+		private static void CreateCategory()
+		{
+			Models.DatabaseContext? databaseContext = null;
 
-//			var category =
-//				new Models.Category
-//				{
-//					Name = "My Category",
-//				};
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
 
-//			databaseContext.Categories.Add(entity: category);
+				var category =
+					new Models.Category
+					{
+						Name = "My Category",
+					};
 
-//			databaseContext.SaveChanges();
-//		}
-//	}
-//}
+				databaseContext.Categories.Add(entity: category);
+
+				databaseContext.SaveChanges();
+			}
+			catch (System.Exception ex)
+			{
+				// Log Error!
+
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					databaseContext.Dispose();
+					//databaseContext = null;
+				}
+			}
+		}
+	}
+}
 // **************************************************
 // /Solution (5)
 // **************************************************
 
 // **************************************************
 // Solution (6)
-// **************************************************
-//namespace Application
-//{
-//	internal static class Program : object
-//	{
-//		static Program()
-//		{
-//		}
-
-//		private static void Main()
-//		{
-//			CreateCategory();
-//		}
-
-//		private static void CreateCategory()
-//		{
-//			Models.DatabaseContext? databaseContext = null;
-
-//			try
-//			{
-//				databaseContext =
-//					new Models.DatabaseContext();
-
-//				var category =
-//					new Models.Category
-//					{
-//						Name = "My Category",
-//					};
-
-//				databaseContext.Categories.Add(entity: category);
-
-//				databaseContext.SaveChanges();
-//			}
-//			catch (System.Exception ex)
-//			{
-//				System.Console.WriteLine(value: ex.Message);
-//			}
-//			finally
-//			{
-//				if (databaseContext != null)
-//				{
-//					databaseContext.Dispose();
-//					//databaseContext = null;
-//				}
-//			}
-//		}
-//	}
-//}
-// **************************************************
-// /Solution (6)
-// **************************************************
-
-// **************************************************
-// Solution (7)
 // **************************************************
 //namespace Application
 //{
@@ -383,11 +367,11 @@ namespace Application
 //	}
 //}
 // **************************************************
-// /Solution (7)
+// /Solution (6)
 // **************************************************
 
 // **************************************************
-// Solution (8)
+// Solution (7)
 // **************************************************
 //namespace Application
 //{
@@ -440,11 +424,11 @@ namespace Application
 //	}
 //}
 // **************************************************
-// /Solution (8)
+// /Solution (7)
 // **************************************************
 
 // **************************************************
-// Solution (9)
+// Solution (8)
 // **************************************************
 //using System.Linq;
 //using Microsoft.EntityFrameworkCore;
@@ -552,11 +536,11 @@ namespace Application
 //	}
 //}
 // **************************************************
-// /Solution (9)
+// /Solution (8)
 // **************************************************
 
 // **************************************************
-// Solution (10)
+// Solution (9)
 // **************************************************
 //using System.Linq;
 //using Microsoft.EntityFrameworkCore;
@@ -928,5 +912,5 @@ namespace Application
 //	}
 //}
 // **************************************************
-// /Solution (10)
+// /Solution (9)
 // **************************************************
