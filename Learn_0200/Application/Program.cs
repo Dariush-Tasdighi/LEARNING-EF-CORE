@@ -289,85 +289,118 @@
 // **************************************************
 // Solution (6)
 // **************************************************
-namespace Application
-{
-	internal static class Program : object
-	{
-		static Program()
-		{
-		}
+//namespace Application
+//{
+//	internal static class Program : object
+//	{
+//		static Program()
+//		{
+//		}
 
-		private static void Main()
-		{
-			CreateCategory();
-		}
+//		private static void Main()
+//		{
+//			CreateCategory();
+//		}
 
-		private static void CreateCategory()
-		{
-			Models.DatabaseContext? databaseContext = null;
+//		private static void CreateCategory()
+//		{
+//			Models.DatabaseContext? databaseContext = null;
 
-			try
-			{
-				databaseContext =
-					new Models.DatabaseContext();
+//			try
+//			{
+//				databaseContext =
+//					new Models.DatabaseContext();
 
-				var category =
-					new Models.Category
-					{
-						Name = "My Category",
-					};
+//				var category =
+//					new Models.Category
+//					{
+//						Name = "My Category",
+//					};
 
-				databaseContext.Categories.Add(entity: category);
+//				//databaseContext.Categories.Add(entity: category);
 
-				// Type: Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry
-				//var entityEntry =
-				//	databaseContext.Categories.Add(entity: category);
+//				// Type: Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry
+//				//var entityEntry =
+//				//	databaseContext.Categories.Add(entity: category);
 
-				// New in EF Core
-				//databaseContext.Add(entity: category);
+//				// New in EF Core
+//				//databaseContext.Add(entity: category);
 
-				// New in EF Core
-				// Type: Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry
-				//var entityEntry =
-				//	databaseContext.Add(entity: category);
+//				// New in EF Core
+//				// Type: Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry
+//				var entityEntry =
+//					databaseContext.Add(entity: category);
 
-				int id =
-					category.Id;
+//				// OR
 
-				// خطا می‌دهد EF Core در
-				// مشکلی نداشت و صرفا توجهی به مقدار ما نمی‌کرد EF ولی در
-				//category.Id = 12345;
+//				entityEntry =
+//					databaseContext.Entry(entity: category);
 
-				databaseContext.SaveChanges();
+//				switch (entityEntry.State)
+//				{
+//					case Microsoft.EntityFrameworkCore.EntityState.Detached:
+//					{
+//						break;
+//					}
 
-				//int affectedRows =
-				//	databaseContext.SaveChanges();
+//					case Microsoft.EntityFrameworkCore.EntityState.Unchanged:
+//					{
+//						break;
+//					}
 
-				id =
-					category.Id;
-			}
-			catch (System.Exception ex)
-			{
-				// Log Error!
+//					case Microsoft.EntityFrameworkCore.EntityState.Added:
+//					{
+//						break;
+//					}
 
-				//ex.InnerException.Message
+//					case Microsoft.EntityFrameworkCore.EntityState.Modified:
+//					{
+//						break;
+//					}
 
-				// Cannot insert explicit value for identity column
-				// in table 'Categories' when IDENTITY_INSERT is set
-				// to OFF.
+//					case Microsoft.EntityFrameworkCore.EntityState.Deleted:
+//					{
+//						break;
+//					}
+//				}
 
-				System.Console.WriteLine(value: ex.Message);
-			}
-			finally
-			{
-				if (databaseContext != null)
-				{
-					databaseContext.Dispose();
-				}
-			}
-		}
-	}
-}
+//				int id =
+//					category.Id;
+
+//				// خطا می‌دهد EF Core در
+//				// مشکلی نداشت و صرفا توجهی به مقدار ما نمی‌کرد EF ولی در
+//				//category.Id = 12345;
+
+//				databaseContext.SaveChanges();
+
+//				//var affectedRows =
+//				//	databaseContext.SaveChanges();
+
+//				id =
+//					category.Id;
+//			}
+//			catch (System.Exception ex)
+//			{
+//				// Log Error!
+
+//				//ex.InnerException.Message
+
+//				// Cannot insert explicit value for identity column
+//				// in table 'Categories' when IDENTITY_INSERT is set
+//				// to OFF.
+
+//				System.Console.WriteLine(value: ex.Message);
+//			}
+//			finally
+//			{
+//				if (databaseContext != null)
+//				{
+//					databaseContext.Dispose();
+//				}
+//			}
+//		}
+//	}
+//}
 // **************************************************
 // /Solution (6)
 // **************************************************
@@ -406,10 +439,15 @@ namespace Application
 //					};
 
 //				var entityEntry =
-//					databaseContext.Categories.Add(entity: category);
+//					databaseContext.Add(entity: category);
 
-//				int affectedRows =
-//					await databaseContext.SaveChangesAsync();
+//				// New in EF Core
+//				var affectedRows =
+//					await
+//					databaseContext.SaveChangesAsync();
+
+//				System.Console.WriteLine
+//					(value: $"{nameof(affectedRows)}: {affectedRows}");
 //			}
 //			catch (System.Exception ex)
 //			{
@@ -435,134 +473,291 @@ namespace Application
 // **************************************************
 // Solution (8)
 // **************************************************
-//using System.Linq;
-//using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
-//namespace Application
-//{
-//	internal static class Program : object
-//	{
-//		static Program()
-//		{
-//		}
+namespace Application
+{
+	internal static class Program : object
+	{
+		static Program()
+		{
+		}
 
-//		public static async System.Threading.Tasks.Task Main()
-//		{
-//			await CreateCategoryAsync();
-//			await DisplayCategoriesAsync();
-//		}
+		public static async System.Threading.Tasks.Task Main()
+		{
+			await CreateCategoryAsync();
+			await DisplayCategoriesAsync();
+		}
 
-//		private static async System.Threading.Tasks.Task CreateCategoryAsync()
-//		{
-//			Models.DatabaseContext? databaseContext = null;
+		private static async System.Threading.Tasks.Task CreateCategoryAsync()
+		{
+			Models.DatabaseContext? databaseContext = null;
 
-//			try
-//			{
-//				databaseContext =
-//					new Models.DatabaseContext();
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
 
-//				var category =
-//					new Models.Category
-//					{
-//						Name = "My Category",
-//					};
+				var category =
+					new Models.Category
+					{
+						Name = "My Category",
+					};
 
-//				var entityEntry =
-//					databaseContext.Categories.Add(entity: category);
+				var entityEntry =
+					databaseContext.Add(entity: category);
 
-//				int affectedRows =
-//					await databaseContext.SaveChangesAsync();
-//			}
-//			catch (System.Exception ex)
-//			{
-//				// Log Error!
+				var affectedRows =
+					await databaseContext.SaveChangesAsync();
+			}
+			catch (System.Exception ex)
+			{
+				// Log Error!
 
-//				System.Console.WriteLine(value: ex.Message);
-//			}
-//			finally
-//			{
-//				if (databaseContext != null)
-//				{
-//					await databaseContext.DisposeAsync();
-//				}
-//			}
-//		}
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
 
-//		private static async System.Threading.Tasks.Task DisplayCategoriesAsync()
-//		{
-//			Models.DatabaseContext? databaseContext = null;
+		private static async System.Threading.Tasks.Task DisplayCategoriesAsync()
+		{
+			Models.DatabaseContext? databaseContext = null;
 
-//			try
-//			{
-//				databaseContext =
-//					new Models.DatabaseContext();
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
 
-//				//var categories =
-//				//	databaseContext.Categories.ToList();
+				// **************************************************
+				// **************************************************
+				// **************************************************
+				//var categories =
+				//	databaseContext.Categories.ToList();
+				// **************************************************
 
-//				//var categories =
-//				//	databaseContext.Categories
-//				//	// ToList() -> using System.Linq;
-//				//	.ToList()
-//				//	;
+				// **************************************************
+				//var categories =
+				//	databaseContext.Categories
+				//	// ToList() -> using System.Linq;
+				//	.ToList()
+				//	;
+				// **************************************************
 
-//				//var categories =
-//				//	await
-//				//	databaseContext.Categories
-//				//	// ToListAsync -> using Microsoft.EntityFrameworkCore;
-//				//	.ToListAsync()
-//				//	;
+				// **************************************************
+				//var categories =
+				//	await
+				//	databaseContext.Categories
+				//	// ToListAsync -> using Microsoft.EntityFrameworkCore;
+				//	.ToListAsync()
+				//	;
+				// **************************************************
 
-//				//var categories =
-//				//	await
-//				//	databaseContext.Categories
-//				//	.Where(current => current.Id <= 100)
-//				//	// ToListAsync -> using Microsoft.EntityFrameworkCore;
-//				//	.ToListAsync()
-//				//	;
+				// **************************************************
+				//var categories =
+				//	await
+				//	databaseContext.Categories
+				//	.Where(current => current.Id <= 100)
+				//	// ToListAsync -> using Microsoft.EntityFrameworkCore;
+				//	.ToListAsync()
+				//	;
+				// **************************************************
 
-//				//var categories =
-//				//	await
-//				//	databaseContext.Categories
-//				//	.OrderBy(current => current.Id)
-//				//	// ToListAsync -> using Microsoft.EntityFrameworkCore;
-//				//	.ToListAsync()
-//				//	;
+				// **************************************************
+				//var categories =
+				//	await
+				//	databaseContext.Categories
+				//	.OrderBy(current => current.Id)
+				//	// ToListAsync -> using Microsoft.EntityFrameworkCore;
+				//	.ToListAsync()
+				//	;
+				// **************************************************
 
-//				// اهمیت داشت، ولی در این نسخه اهمیتی ندارد Where and OrderBy در نسخه قدیم ترتیب نوشتن
-//				var categories =
-//					await
-//					databaseContext.Categories
-//					.Where(current => current.Id <= 100)
-//					.OrderBy(current => current.Id)
-//					// ToListAsync -> using Microsoft.EntityFrameworkCore;
-//					.ToListAsync()
-//					;
+				// **************************************************
+				//var categories =
+				//	await
+				//	databaseContext.Categories
+				//	.OrderByDescending(current => current.Id)
+				//	// ToListAsync -> using Microsoft.EntityFrameworkCore;
+				//	.ToListAsync()
+				//	;
+				// **************************************************
 
-//				foreach (var item in categories)
-//				{
-//					string message =
-//						$"Id: {item.Id} - Name: {item.Name}";
+				// **************************************************
+				// اهمیت داشت، ولی در این نسخه اهمیتی ندارد Where and OrderBy در نسخه قدیم ترتیب نوشتن
+				// ولی اصولا عادت کنید که به شکل و به ترتیب ذیل بنویسید
+				var categories =
+					await
+					databaseContext.Categories
+					.Where(current => current.Id <= 100)
+					.OrderBy(current => current.Id)
+					// ToListAsync -> using Microsoft.EntityFrameworkCore;
+					.ToListAsync()
+					;
 
-//					System.Console.WriteLine(value: message);
-//				}
-//			}
-//			catch (System.Exception ex)
-//			{
-//				// Log Error!
+				foreach (var item in categories)
+				{
+					string message =
+						$"Id: {item.Id} - Name: {item.Name}";
 
-//				System.Console.WriteLine(value: ex.Message);
-//			}
-//			finally
-//			{
-//				if (databaseContext != null)
-//				{
-//					await databaseContext.DisposeAsync();
-//				}
-//			}
-//		}
-//	}
-//}
+					System.Console.WriteLine(value: message);
+				}
+				// **************************************************
+				// **************************************************
+				// **************************************************
+
+				// **************************************************
+				string? name;
+
+				name = "My Category";
+				// **************************************************
+
+				// **************************************************
+				// **************************************************
+				// **************************************************
+				//var categories =
+				//	await
+				//	databaseContext.Categories
+				//	.Where(current => current.Name == name)
+				//	.ToListAsync()
+				//	;
+				// **************************************************
+
+				// **************************************************
+				// کلاسیک کار می‌کرد ولی در نسخه جدید کار نمی‌کند EF دقت کنید که دستور ذیل در نسخه
+				// از آن استفاده نمی‌کنیم EF Core لذا در نسخه
+				//var categories =
+				//	await
+				//	databaseContext.Categories
+				//	.Where(current => string.Compare(current.Name, name, true) == 0)
+				//	.ToListAsync()
+				//	;
+				// **************************************************
+
+				// **************************************************
+				//var categories =
+				//	await
+				//	databaseContext.Categories
+				//	.Where(current => current.Name == name)
+				//	.ToListAsync()
+				//	;
+				// **************************************************
+
+				// **************************************************
+				// باشد به خطا خواهد خورد null ،name دستور ذیل در شرایطی که
+				//var categories =
+				//	await
+				//	databaseContext.Categories
+				//	.Where(current => current.Name!.ToLower() == name.ToLower())
+				//	.ToListAsync()
+				//	;
+				// **************************************************
+
+				// **************************************************
+				//if (name != null)
+				//{
+				//	var categories =
+				//		await
+				//		databaseContext.Categories
+				//		.Where(current => current.Name!.ToLower() == name.ToLower())
+				//		.ToListAsync()
+				//		;
+				//}
+				// **************************************************
+				// **************************************************
+				// **************************************************
+
+				// **************************************************
+				//name = "My";
+
+				//if (name != null)
+				//{
+				//	var categories =
+				//		await
+				//		databaseContext.Categories
+				//		.Where(current => current.Name!.ToLower().StartsWith(name.ToLower()))
+				//		.ToListAsync()
+				//		;
+
+				//	foreach (var item in categories)
+				//	{
+				//		string message =
+				//			$"Id: {item.Id} - Name: {item.Name}";
+
+				//		System.Console.WriteLine(value: message);
+				//	}
+
+				//}
+				// **************************************************
+
+				// **************************************************
+				//name = "Category";
+
+				//if (name != null)
+				//{
+				//	var categories =
+				//		await
+				//		databaseContext.Categories
+				//		.Where(current => current.Name!.ToLower().EndsWith(name.ToLower()))
+				//		.ToListAsync()
+				//		;
+
+				//	foreach (var item in categories)
+				//	{
+				//		string message =
+				//			$"Id: {item.Id} - Name: {item.Name}";
+
+				//		System.Console.WriteLine(value: message);
+				//	}
+
+				//}
+				// **************************************************
+
+				// **************************************************
+				//name = "Gory";
+
+				//if (name != null)
+				//{
+				//	var categories =
+				//		await
+				//		databaseContext.Categories
+				//		.Where(current => current.Name!.ToLower().Contains(name.ToLower()))
+				//		.ToListAsync()
+				//		;
+
+				//	foreach (var item in categories)
+				//	{
+				//		string message =
+				//			$"Id: {item.Id} - Name: {item.Name}";
+
+				//		System.Console.WriteLine(value: message);
+				//	}
+
+				//}
+				// **************************************************
+			}
+			catch (System.Exception ex)
+			{
+				// Log Error!
+
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
+	}
+}
 // **************************************************
 // /Solution (8)
 // **************************************************
@@ -625,7 +820,7 @@ namespace Application
 //				var entityEntry =
 //					databaseContext.Categories.Add(entity: category);
 
-//				int affectedRows =
+//				var affectedRows =
 //					await databaseContext.SaveChangesAsync();
 //			}
 //			catch (System.Exception ex)
@@ -735,7 +930,7 @@ namespace Application
 //				category.Name =
 //					$"{category.Name}_{category.Id}";
 
-//				int affectedRows =
+//				var affectedRows =
 //					await databaseContext.SaveChangesAsync();
 
 //				//var theCategory =
@@ -834,11 +1029,11 @@ namespace Application
 //					item.Name =
 //						$"{item.Name}_{item.Id}";
 
-//					//int affectedRows =
+//					//var affectedRows =
 //					//	await databaseContext.SaveChangesAsync();
 //				}
 
-//				int affectedRows =
+//				var affectedRows =
 //					await databaseContext.SaveChangesAsync();
 //			}
 //			catch (System.Exception ex)
@@ -904,7 +1099,7 @@ namespace Application
 //				// دقت کنید که تابع ذیل، خروجی ندارد
 //				//databaseContext.RemoveRange(entities: category);
 
-//				int affectedRows =
+//				var affectedRows =
 //					await databaseContext.SaveChangesAsync();
 //			}
 //			catch (System.Exception ex)
@@ -947,7 +1142,7 @@ namespace Application
 //				{
 //					databaseContext.Categories.Remove(item);
 
-//					//int affectedRows =
+//					//var affectedRows =
 //					//	await databaseContext.SaveChangesAsync();
 //				}
 //				// **************************************************
@@ -966,7 +1161,7 @@ namespace Application
 //				// **************************************************
 //				// **************************************************
 
-//				int affectedRows =
+//				var affectedRows =
 //					await databaseContext.SaveChangesAsync();
 //			}
 //			catch (System.Exception ex)
