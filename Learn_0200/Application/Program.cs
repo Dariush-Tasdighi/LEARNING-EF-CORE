@@ -554,50 +554,61 @@ namespace Application
 				//var categories =
 				//	await
 				//	databaseContext.Categories
-				//	// ToListAsync -> using Microsoft.EntityFrameworkCore;
+				//	// New in EF Core
+				//	// ToListAsync() -> using Microsoft.EntityFrameworkCore;
 				//	.ToListAsync()
 				//	;
+				// **************************************************
+				// SELECT * FROM Categories
 				// **************************************************
 
 				// **************************************************
 				//var categories =
 				//	await
 				//	databaseContext.Categories
+				//	// Where() -> using System.Linq
 				//	.Where(current => current.Id <= 100)
-				//	// ToListAsync -> using Microsoft.EntityFrameworkCore;
 				//	.ToListAsync()
 				//	;
+				// **************************************************
+				// SELECT * FROM Categories WHERE Id <= 100
 				// **************************************************
 
 				// **************************************************
 				//var categories =
 				//	await
 				//	databaseContext.Categories
+				//	// OrderBy() -> using System.Linq
 				//	.OrderBy(current => current.Id)
-				//	// ToListAsync -> using Microsoft.EntityFrameworkCore;
 				//	.ToListAsync()
 				//	;
+				// **************************************************
+				// SELECT * FROM Categories ORDER BY Name
+				// OR
+				// SELECT * FROM Categories ORDER BY Name ASC
 				// **************************************************
 
 				// **************************************************
 				//var categories =
 				//	await
 				//	databaseContext.Categories
+				//	// OrderByDescending() -> using System.Linq
 				//	.OrderByDescending(current => current.Id)
-				//	// ToListAsync -> using Microsoft.EntityFrameworkCore;
 				//	.ToListAsync()
 				//	;
+				// **************************************************
+				// SELECT * FROM Categories ORDER BY Name DESC
 				// **************************************************
 
 				// **************************************************
 				// اهمیت داشت، ولی در این نسخه اهمیتی ندارد Where and OrderBy در نسخه قدیم ترتیب نوشتن
 				// ولی اصولا عادت کنید که به شکل و به ترتیب ذیل بنویسید
+				// **************************************************
 				var categories =
 					await
 					databaseContext.Categories
 					.Where(current => current.Id <= 100)
 					.OrderBy(current => current.Id)
-					// ToListAsync -> using Microsoft.EntityFrameworkCore;
 					.ToListAsync()
 					;
 
@@ -609,13 +620,13 @@ namespace Application
 					System.Console.WriteLine(value: message);
 				}
 				// **************************************************
+				// SELECT * FROM Categories WHERE Id <= 100 ORDER BY Name
+				// **************************************************
 				// **************************************************
 				// **************************************************
 
 				// **************************************************
-				string? name;
-
-				name = "My Category";
+				string? name = "My Category";
 				// **************************************************
 
 				// **************************************************
@@ -627,6 +638,8 @@ namespace Application
 				//	.Where(current => current.Name == name)
 				//	.ToListAsync()
 				//	;
+				// **************************************************
+				// SELECT * FROM Categories WHERE Name = 'My Category'
 				// **************************************************
 
 				// **************************************************
@@ -636,15 +649,6 @@ namespace Application
 				//	await
 				//	databaseContext.Categories
 				//	.Where(current => string.Compare(current.Name, name, true) == 0)
-				//	.ToListAsync()
-				//	;
-				// **************************************************
-
-				// **************************************************
-				//var categories =
-				//	await
-				//	databaseContext.Categories
-				//	.Where(current => current.Name == name)
 				//	.ToListAsync()
 				//	;
 				// **************************************************
@@ -692,8 +696,9 @@ namespace Application
 
 				//		System.Console.WriteLine(value: message);
 				//	}
-
 				//}
+				// **************************************************
+				// SELECT * FROM Categories WHERE Name LIKE 'My%'
 				// **************************************************
 
 				// **************************************************
@@ -715,8 +720,9 @@ namespace Application
 
 				//		System.Console.WriteLine(value: message);
 				//	}
-
 				//}
+				// **************************************************
+				// SELECT * FROM Categories WHERE Name LIKE '%Category'
 				// **************************************************
 
 				// **************************************************
@@ -738,8 +744,9 @@ namespace Application
 
 				//		System.Console.WriteLine(value: message);
 				//	}
-
 				//}
+				// **************************************************
+				// SELECT * FROM Categories WHERE Name LIKE '%Gory%'
 				// **************************************************
 			}
 			catch (System.Exception ex)
