@@ -825,7 +825,7 @@ namespace Application
 //					};
 
 //				var entityEntry =
-//					databaseContext.Categories.Add(entity: category);
+//					databaseContext.Add(entity: category);
 
 //				var affectedRows =
 //					await databaseContext.SaveChangesAsync();
