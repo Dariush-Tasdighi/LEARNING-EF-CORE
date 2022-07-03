@@ -31,7 +31,7 @@ namespace Application
 
 			await DisplayCategoriesAsync();
 
-			await DeleteAllCategoriesAsync();
+			await DeleteSomeCategoriesAsync();
 
 			await DisplayCategoriesAsync();
 			// **************************************************
@@ -59,9 +59,9 @@ namespace Application
 					};
 
 				var entityEntry =
-					databaseContext.Add(entity: category);
+					await databaseContext.AddAsync(entity: category);
 
-				int affectedRows =
+				var affectedRows =
 					await databaseContext.SaveChangesAsync();
 			}
 			catch (System.Exception ex)
@@ -91,8 +91,8 @@ namespace Application
 				var categories =
 					await
 					databaseContext.Categories01
-					.Where(current => current.Id <= 100)
-					.OrderBy(current => current.Id)
+					.Where(predicate: current => current.Id <= 100)
+					.OrderBy(keySelector: current => current.Id)
 					.ToListAsync()
 					;
 
@@ -131,8 +131,8 @@ namespace Application
 				var category =
 					await
 					databaseContext.Categories01
-					.Where(current => current.Id <= 100)
-					.OrderBy(current => current.Id)
+					.Where(predicate: current => current.Id <= 100)
+					.OrderBy(keySelector: current => current.Id)
 					.FirstOrDefaultAsync();
 
 				if (category == null)
@@ -146,7 +146,7 @@ namespace Application
 				category.Name =
 					$"{category.Name}_{category.Id}";
 
-				int affectedRows =
+				var affectedRows =
 					await databaseContext.SaveChangesAsync();
 			}
 			catch (System.Exception ex)
@@ -176,8 +176,8 @@ namespace Application
 				var categories =
 					await
 					databaseContext.Categories01
-					.Where(current => current.Id <= 100)
-					.OrderBy(current => current.Id)
+					.Where(predicate: current => current.Id <= 100)
+					.OrderBy(keySelector: current => current.Id)
 					.ToListAsync();
 
 				foreach (var item in categories)
@@ -186,7 +186,7 @@ namespace Application
 						$"{item.Name}_{item.Id}";
 				}
 
-				int affectedRows =
+				var affectedRows =
 					await databaseContext.SaveChangesAsync();
 			}
 			catch (System.Exception ex)
@@ -216,8 +216,8 @@ namespace Application
 				var category =
 					await
 					databaseContext.Categories01
-					.Where(current => current.Id <= 100)
-					.OrderBy(current => current.Id)
+					.Where(predicate: current => current.Id <= 100)
+					.OrderBy(keySelector: current => current.Id)
 					.FirstOrDefaultAsync();
 
 				if (category == null)
@@ -231,7 +231,7 @@ namespace Application
 				var entityEntry =
 					databaseContext.Remove(entity: category);
 
-				int affectedRows =
+				var affectedRows =
 					await databaseContext.SaveChangesAsync();
 			}
 			catch (System.Exception ex)
@@ -249,7 +249,7 @@ namespace Application
 			}
 		}
 
-		private static async System.Threading.Tasks.Task DeleteAllCategoriesAsync()
+		private static async System.Threading.Tasks.Task DeleteSomeCategoriesAsync()
 		{
 			Models.DatabaseContext? databaseContext = null;
 
@@ -266,7 +266,7 @@ namespace Application
 
 				databaseContext.RemoveRange(entities: categories);
 
-				int affectedRows =
+				var affectedRows =
 					await databaseContext.SaveChangesAsync();
 			}
 			catch (System.Exception ex)
@@ -297,7 +297,8 @@ namespace Application
 					new Models.Category13(name: "My Category");
 
 				var entityEntry =
-					databaseContext.Add(entity: category);
+					await
+					databaseContext.AddAsync(entity: category);
 
 				int affectedRows =
 					await databaseContext.SaveChangesAsync();
