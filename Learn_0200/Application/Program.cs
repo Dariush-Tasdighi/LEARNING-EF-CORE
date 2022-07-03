@@ -1150,6 +1150,7 @@ namespace Application
 					return;
 				}
 
+				// **************************************************
 				//databaseContext.Categories.Remove(entity: category);
 
 				//var entityEntry =
@@ -1157,7 +1158,9 @@ namespace Application
 
 				// دقت کنید که تابع ذیل، خروجی ندارد
 				//databaseContext.Categories.RemoveRange(entities: category);
+				// **************************************************
 
+				// **************************************************
 				// New in .NET Core
 				//databaseContext.Remove(entity: category);
 
@@ -1168,6 +1171,7 @@ namespace Application
 				// New in .NET Core
 				// دقت کنید که تابع ذیل، خروجی ندارد
 				//databaseContext.RemoveRange(entities: category);
+				// **************************************************
 
 				var affectedRows =
 					await databaseContext.SaveChangesAsync();
