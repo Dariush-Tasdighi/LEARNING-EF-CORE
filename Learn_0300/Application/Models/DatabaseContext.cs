@@ -40,6 +40,40 @@ namespace Models
 
 		public Microsoft.EntityFrameworkCore.DbSet<Category13> Categories13 { get; set; }
 
+		public Microsoft.EntityFrameworkCore.DbSet<Category14> Categories14 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<Category15> Categories15 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<Category16> Categories16 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<Category17> Categories17 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<Category18> Categories18 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<Category19> Categories19 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<Category20> Categories20 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<Category21> Categories21 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<Category22> Categories22 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<Category23> Categories23 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<Category24> Categories24 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<Category25> Categories25 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<Category26> Categories26 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<Category27> Categories27 { get; set; }
+
+		//public Microsoft.EntityFrameworkCore.DbSet<Category28> Categories28 { get; set; }
+
+		//public Microsoft.EntityFrameworkCore.DbSet<Category29> Categories29 { get; set; }
+
+		//public Microsoft.EntityFrameworkCore.DbSet<Category3> Categories3 { get; set; }
+
 		protected override void OnConfiguring
 			(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder optionsBuilder)
 		{

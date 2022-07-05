@@ -1,7 +1,4 @@
-﻿// **************************************************
-// Solution (9)
-// **************************************************
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application
@@ -40,6 +37,14 @@ namespace Application
 			await CreateCategory13Async();
 
 			await DisplayCategories13Async();
+			// **************************************************
+
+			// **************************************************
+			await CreateCategory23Async();
+			// **************************************************
+
+			// **************************************************
+			await CreateCategory25Async();
 			// **************************************************
 		}
 
@@ -360,8 +365,94 @@ namespace Application
 				}
 			}
 		}
+
+		private static async System.Threading.Tasks.Task CreateCategory23Async()
+		{
+			Models.DatabaseContext? databaseContext = null;
+
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
+
+				var category =
+					new Models.Category23(name: "My Category");
+
+				var id = category.Id;
+				var code = category.Code;
+
+				var entityEntry =
+					await
+					databaseContext.AddAsync(entity: category);
+
+				id = category.Id;
+				code = category.Code;
+
+				int affectedRows =
+					await databaseContext.SaveChangesAsync();
+
+				id = category.Id;
+				code = category.Code;
+			}
+			catch (System.Exception ex)
+			{
+				// Log Error!
+
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
+
+		private static async System.Threading.Tasks.Task CreateCategory25Async()
+		{
+			Models.DatabaseContext? databaseContext = null;
+
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
+
+				var category =
+					new Models.Category25(name: "My Category");
+
+				var entityEntry =
+					await
+					databaseContext.AddAsync(entity: category);
+
+				int affectedRows =
+					await databaseContext.SaveChangesAsync();
+
+				var id = category.Id;
+				var code = category.Code;
+
+				var displayName =
+					category.DisplayName;
+
+				var insertPersianDate =
+					category.InsertPersianDate;
+
+				var insertPersianDateTime =
+					category.InsertPersianDateTime;
+			}
+			catch (System.Exception ex)
+			{
+				// Log Error!
+
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
 	}
 }
-// **************************************************
-// /Solution (1)
-// **************************************************
