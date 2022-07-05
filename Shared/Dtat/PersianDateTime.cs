@@ -20,11 +20,11 @@
 			Second = time.Second;
 		}
 
-		public int Hour { get; set; }
+		public int Hour { get; }
 
-		public int Minute { get; set; }
+		public int Minute { get; }
 
-		public int Second { get; set; }
+		public int Second { get; }
 
 		public override string ToString()
 		{

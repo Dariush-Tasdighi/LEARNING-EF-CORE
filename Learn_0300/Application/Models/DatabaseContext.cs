@@ -68,6 +68,14 @@ namespace Models
 
 		public Microsoft.EntityFrameworkCore.DbSet<Category27> Categories27 { get; set; }
 
+		//public Microsoft.EntityFrameworkCore.DbSet<UserInGroup01> UsersInGroups01 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<UserInGroup02> UsersInGroups02 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<User01> Users01 { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<User02> Users02 { get; set; }
+
 		//public Microsoft.EntityFrameworkCore.DbSet<Category28> Categories28 { get; set; }
 
 		//public Microsoft.EntityFrameworkCore.DbSet<Category29> Categories29 { get; set; }

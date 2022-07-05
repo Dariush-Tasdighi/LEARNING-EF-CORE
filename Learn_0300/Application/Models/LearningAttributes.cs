@@ -1194,3 +1194,199 @@ namespace Models
 // **************************************************
 // **************************************************
 // **************************************************
+
+// **************************************************
+// *** UserInGroup 01 *******************************
+// **************************************************
+//namespace Models
+//{
+//	/// <summary>
+//	/// ضمن آن‌که تفکر ذیل را اصلا توصیه نمی‌کنم، باید دقت داشته باشید
+//	/// کار نمی‌کند EF Core کار می‌کند ولی در EF روش ذیل در
+//	/// 
+//	/// Error:
+//	/// The entity type 'UserInGroup01' has multiple properties with the [Key] attribute.
+//	/// Composite primary keys can only be set using 'HasKey' in 'OnModelCreating'.
+//	/// </summary>
+//	public class UserInGroup01 : object
+//	{
+//		public UserInGroup01(System.Guid userId, System.Guid groupId) : base()
+//		{
+//			UserId = userId;
+//			GroupId = groupId;
+//		}
+
+//		// **********
+//		[System.ComponentModel.DataAnnotations.Key]
+//		[System.ComponentModel.DataAnnotations.Schema.Column(Order = 0)]
+//		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
+//			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
+//		public System.Guid UserId { get; private set; }
+//		// **********
+
+//		// **********
+//		[System.ComponentModel.DataAnnotations.Key]
+//		[System.ComponentModel.DataAnnotations.Schema.Column(Order = 1)]
+//		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
+//			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
+//		public System.Guid GroupId { get; private set; }
+//		// **********
+//	}
+//}
+// **************************************************
+// **************************************************
+// **************************************************
+
+// **************************************************
+// *** UserInGroup 02 *******************************
+// **************************************************
+namespace Models
+{
+	public class UserInGroup02 : object
+	{
+		public UserInGroup02(System.Guid userId, System.Guid groupId) : base()
+		{
+			UserId = userId;
+			GroupId = groupId;
+			Id = System.Guid.NewGuid();
+		}
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
+			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
+		public System.Guid Id { get; private set; }
+		// **********
+
+		// **********
+		/// <summary>
+		/// Foreign Key
+		/// 
+		/// دستور ذیل، ناقص است! انشاءالله در قسمت روابط
+		/// یک به چند و چند به چند به این موضوع به طور کامل می‌پردازیم
+		/// </summary>
+		public System.Guid UserId { get; private set; }
+		// **********
+
+		// **********
+		/// <summary>
+		/// Foreign Key
+		/// 
+		/// دستور ذیل، ناقص است! انشاءالله در قسمت روابط
+		/// یک به چند و چند به چند به این موضوع به طور کامل می‌پردازیم
+		/// </summary>
+		public System.Guid GroupId { get; private set; }
+		// **********
+	}
+}
+// **************************************************
+// **************************************************
+// **************************************************
+
+// **************************************************
+// *** User 01 **************************************
+// **************************************************
+namespace Models
+{
+	public class User01 : object
+	{
+		public User01(string username) : base()
+		{
+			Username = username;
+			Id = System.Guid.NewGuid();
+		}
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
+			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
+		public System.Guid Id { get; private set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Required
+			(AllowEmptyStrings = false)]
+
+		[System.ComponentModel.DataAnnotations.MaxLength
+			(length: 20)]
+
+		// کار نمی‌کند EF Core کار می‌کند و در EF دستور ذیل فقط در
+		//[System.ComponentModel.DataAnnotations.Schema.Index
+		//	(IsUnique = false)]
+		public string Username { get; private set; }
+		// **********
+	}
+}
+// **************************************************
+// **************************************************
+// **************************************************
+
+// **************************************************
+// *** User 02 **************************************
+// **************************************************
+namespace Models
+{
+	/// <summary>
+	/// نکته بسیار مهم
+	/// 
+	/// تعریف کرد Index هستند VarChar, NVarChar نمی‌توان برای فیلدهایی که از جنس
+	/// </summary>
+	//[Microsoft.EntityFrameworkCore.Index
+	//	("Username", IsUnique = true)]
+
+	// Index Name: IX_Users02_Username
+	//[Microsoft.EntityFrameworkCore.Index
+	//	(nameof(Username), IsUnique = true)]
+
+	[Microsoft.EntityFrameworkCore.Index
+		(nameof(Username), IsUnique = true, Name = "Googooli")]
+
+	[Microsoft.EntityFrameworkCore.Index
+		(nameof(FirstName), nameof(LastName), IsUnique = false)]
+
+	// با اجرای دستور ذیل اتفاق جالبی رخ می‌دهد
+	// nvarchar(450)
+	// صورت می‌گیرد EF Core این عمل به طور اتوماتیک توسط
+	[Microsoft.EntityFrameworkCore.Index
+		(nameof(Description))]
+	public class User02 : object
+	{
+		public User02(string username) : base()
+		{
+			Username = username;
+			Id = System.Guid.NewGuid();
+		}
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
+			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
+		public System.Guid Id { get; private set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Required
+			(AllowEmptyStrings = false)]
+
+		[System.ComponentModel.DataAnnotations.MaxLength
+			(length: 20)]
+		public string Username { get; private set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.MaxLength
+			(length: 20)]
+		public string? FirstName { get; set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.MaxLength
+			(length: 30)]
+		public string? LastName { get; set; }
+		// **********
+
+		// **********
+		public string? Description { get; set; }
+		// **********
+	}
+}
+// **************************************************
+// **************************************************
+// **************************************************
