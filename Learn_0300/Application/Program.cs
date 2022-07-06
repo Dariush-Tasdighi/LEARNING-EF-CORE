@@ -309,6 +309,9 @@ namespace Application
 
 				int affectedRows =
 					await databaseContext.SaveChangesAsync();
+
+				var id =
+					category.Id;
 			}
 			catch (System.Exception ex)
 			{

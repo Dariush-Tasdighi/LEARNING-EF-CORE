@@ -1,4 +1,10 @@
 ﻿// **************************************************
+// **************************************************
+// *** Session 13 ***********************************
+// **************************************************
+// **************************************************
+
+// **************************************************
 // *** Category 01 **********************************
 // **************************************************
 namespace Models
@@ -378,21 +384,32 @@ namespace Models
 		}
 
 		// **********
-		public int Id { get; set; }
+		/// <summary>
+		/// Note: private set;
+		/// </summary>
+		public int Id { get; private set; }
 		// **********
 
 		// **********
+		/// <summary>
+		/// Note: string? -> string
+		/// </summary>
 		[System.ComponentModel.DataAnnotations.Required
 			(AllowEmptyStrings = false)]
 
 		[System.ComponentModel.DataAnnotations.StringLength
 			(maximumLength: 100, MinimumLength = 3)]
 		public string Name { get; set; }
-		//public string? Name { get; set; }
 		// **********
 	}
 }
 // **************************************************
+// **************************************************
+// **************************************************
+
+// **************************************************
+// **************************************************
+// *** Session 14 ***********************************
 // **************************************************
 // **************************************************
 
@@ -410,7 +427,7 @@ namespace Models
 		}
 
 		// **********
-		public int Id { get; set; }
+		public int Id { get; private set; }
 		// **********
 
 		// **********
@@ -453,7 +470,7 @@ namespace Models
 		}
 
 		// **********
-		public int Id { get; set; }
+		public int Id { get; private set; }
 		// **********
 
 		// **********
@@ -521,7 +538,7 @@ namespace Models
 		// **********
 		[System.ComponentModel.DataAnnotations.Schema.Column
 			(name: "CountryId")]
-		public int Id { get; set; }
+		public int Id { get; private set; }
 		// **********
 
 		// **********
@@ -558,7 +575,7 @@ namespace Models
 		// **********
 		[System.ComponentModel.DataAnnotations.Schema.Column
 			(name: "FIELD_001")]
-		public int Id { get; set; }
+		public int Id { get; private set; }
 		// **********
 
 		// **********
@@ -597,7 +614,7 @@ namespace Models
 		}
 
 		// **********
-		public int Id { get; set; }
+		public int Id { get; private set; }
 		// **********
 
 		// **********
@@ -639,7 +656,7 @@ namespace Models
 		}
 
 		// **********
-		public int Id { get; set; }
+		public int Id { get; private set; }
 		// **********
 
 		// **********
@@ -683,7 +700,7 @@ namespace Models
 
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
-		public int Id { get; set; }
+		public int Id { get; private set; }
 		// **********
 
 		// **********
@@ -717,7 +734,7 @@ namespace Models
 		/// بانک اطلاعاتی مقدار آن را
 		/// تولید می‌کند و به سمت برنامه ارسال می‌کند
 		/// </summary>
-		public System.Guid Id { get; set; }
+		public System.Guid Id { get; private set; }
 		// **********
 
 		// **********
@@ -754,7 +771,7 @@ namespace Models
 		// **********
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
-		public System.Guid Id { get; set; }
+		public System.Guid Id { get; private set; }
 		// **********
 
 		// **********
@@ -791,7 +808,7 @@ namespace Models
 		// **********
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
-		public System.Guid Id { get; set; }
+		public System.Guid Id { get; private set; }
 		// **********
 
 		// **********
@@ -831,7 +848,7 @@ namespace Models
 		// **********
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
-		public System.Guid Id { get; set; }
+		public System.Guid Id { get; private set; }
 		// **********
 
 		// **********
