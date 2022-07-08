@@ -423,7 +423,8 @@ namespace Models
 		public Category14(string name) : base()
 		{
 			Name = name;
-			Ordering = 10000;
+			//Ordering = 10000;
+			Ordering = 10_000;
 		}
 
 		// **********
@@ -447,8 +448,10 @@ namespace Models
 		/// تعبیر به شرط آن است که در
 		/// درون متغیر مقداری نوشته شده باشد
 		/// </summary>
+		//[System.ComponentModel.DataAnnotations.Range
+		//	(minimum: 1, maximum: 100000)]
 		[System.ComponentModel.DataAnnotations.Range
-			(minimum: 1, maximum: 100000)]
+			(minimum: 1, maximum: 100_000)]
 		public int Ordering { get; set; }
 		// **********
 	}
