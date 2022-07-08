@@ -462,6 +462,12 @@ namespace Models
 // **************************************************
 namespace Models
 {
+	/// <summary>
+	/// In Classic EF: Automatically: Country -> Countries Based on Model Name
+	/// In EF Core: Automatically: Country -> Countries Based on DbSet Property Name
+	/// 
+	/// Example: Categories_15
+	/// </summary>
 	public class Category15 : object
 	{
 		public Category15(string name) : base()
@@ -483,6 +489,10 @@ namespace Models
 		// **********
 
 		// **********
+		/// <summary>
+		/// این ویژگی فقط مربوط به برنامه می‌شود
+		/// </summary>
+
 		//[System.ComponentModel.DataAnnotations.RegularExpression
 		//	(pattern: "^\\d$")]
 
@@ -491,14 +501,10 @@ namespace Models
 
 		//[System.ComponentModel.DataAnnotations.RegularExpression
 		//	(pattern: "^\\d{3,8}$")]
-
-		/// <summary>
-		/// این ویژگی فقط مربوط به برنامه می‌شود
-		/// </summary>
 		public string? PostalCode { get; set; }
 		// **********
 
-		public bool CheckPostalCodeValidation()
+		public bool ValidatePostalCode()
 		{
 			if (string.IsNullOrEmpty(value: PostalCode))
 			{
@@ -522,10 +528,6 @@ namespace Models
 // **************************************************
 namespace Models
 {
-	/// <summary>
-	/// In Classic EF: Automatically: Country -> Countries Based on Model Name
-	/// In EF Core: Automatically: Country -> Countries Based on DbSet Property Name
-	/// </summary>
 	[System.ComponentModel.DataAnnotations.Schema.Table
 		(name: "CountriesTable")]
 	public class Category16 : object
@@ -714,6 +716,12 @@ namespace Models
 	}
 }
 // **************************************************
+// **************************************************
+// **************************************************
+
+// **************************************************
+// **************************************************
+// *** Session 15 ***********************************
 // **************************************************
 // **************************************************
 

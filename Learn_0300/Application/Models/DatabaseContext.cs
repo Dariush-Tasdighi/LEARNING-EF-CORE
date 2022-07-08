@@ -42,7 +42,7 @@ namespace Models
 
 		public Microsoft.EntityFrameworkCore.DbSet<Category14> Categories14 { get; set; }
 
-		public Microsoft.EntityFrameworkCore.DbSet<Category15> Categories15 { get; set; }
+		public Microsoft.EntityFrameworkCore.DbSet<Category15> Categories_15 { get; set; }
 
 		public Microsoft.EntityFrameworkCore.DbSet<Category16> Categories16 { get; set; }
 
