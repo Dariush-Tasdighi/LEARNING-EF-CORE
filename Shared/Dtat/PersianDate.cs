@@ -10,10 +10,10 @@
 
 		protected static System.Globalization.PersianCalendar PersianCalendar { get; }
 
-		public static string ConvertToDate(System.DateTime time)
+		public static string ConvertToDate(System.DateTime dateTime)
 		{
 			var persianDate =
-				new PersianDate(time: time);
+				new PersianDate(dateTime: dateTime);
 
 			var result =
 				persianDate.ToString();
@@ -21,18 +21,18 @@
 			return result;
 		}
 
-		public PersianDate(System.DateTime time) : base()
+		public PersianDate(System.DateTime dateTime) : base()
 		{
-			Time = time;
+			DateTime = dateTime;
 
 			Day =
-				PersianCalendar.GetDayOfMonth(time: time);
+				PersianCalendar.GetDayOfMonth(time: dateTime);
 
 			Month =
-				PersianCalendar.GetMonth(time: time);
+				PersianCalendar.GetMonth(time: dateTime);
 
 			Year =
-				PersianCalendar.GetYear(time: time);
+				PersianCalendar.GetYear(time: dateTime);
 		}
 
 		public int Day { get; }
@@ -41,7 +41,7 @@
 
 		public int Year { get; }
 
-		public System.DateTime Time { get; }
+		public System.DateTime DateTime { get; }
 
 		public override string ToString()
 		{

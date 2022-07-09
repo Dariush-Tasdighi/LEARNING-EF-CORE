@@ -40,6 +40,10 @@ namespace Application
 			// **************************************************
 
 			// **************************************************
+			await CreateCategory21Async();
+			// **************************************************
+
+			// **************************************************
 			await CreateCategory23Async();
 			// **************************************************
 
@@ -373,6 +377,49 @@ namespace Application
 
 
 
+		private static async System.Threading.Tasks.Task CreateCategory21Async()
+		{
+			Models.DatabaseContext? databaseContext = null;
+
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
+
+				var category =
+					new Models.Category21(name: "My Category");
+
+				var id = category.Id;
+
+				var entityEntry =
+					await
+					databaseContext.AddAsync(entity: category);
+
+				// آی‌دی را محاسبه کرده و ارسال می‌کند SaveChanges دقت کنید که قبل از
+				id = category.Id;
+
+				int affectedRows =
+					await databaseContext.SaveChangesAsync();
+
+				id = category.Id;
+			}
+			catch (System.Exception ex)
+			{
+				// Log Error!
+
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
+
+
+
 		private static async System.Threading.Tasks.Task CreateCategory23Async()
 		{
 			Models.DatabaseContext? databaseContext = null;
@@ -393,6 +440,8 @@ namespace Application
 					databaseContext.AddAsync(entity: category);
 
 				id = category.Id;
+
+				// صدق نمی‌کند Code دقت کنید که نکته تابع قبل در خصوص
 				code = category.Code;
 
 				int affectedRows =

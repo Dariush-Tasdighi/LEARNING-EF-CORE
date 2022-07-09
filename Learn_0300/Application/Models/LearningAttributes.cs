@@ -731,6 +731,9 @@ namespace Models
 // **************************************************
 // *** Category 21 **********************************
 // **************************************************
+// See:
+// CreateCategory21Async() Function
+// **************************************************
 namespace Models
 {
 	public class Category21 : object
@@ -823,9 +826,12 @@ namespace Models
 		// **********
 
 		// **********
+		/// <summary>
+		/// Note: private set;
+		/// </summary>
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
-		public int Code { get; set; }
+		public int Code { get; private set; }
 		// **********
 
 		// **********
@@ -865,12 +871,14 @@ namespace Models
 		// **********
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
-		public int Code1 { get; set; }
+		public int Code1 { get; private set; }
 		// **********
 
 		// **********
 		/// <summary>
 		/// only one column per table can be configured as 'Identity'.
+		/// 
+		/// تعریف نمایید Sequence بعدا یاد خواهید گرفت که چیزی به نام
 		/// </summary>
 		//[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 		//	(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
@@ -892,6 +900,12 @@ namespace Models
 // **************************************************
 
 // **************************************************
+// **************************************************
+// *** Session 16 ***********************************
+// **************************************************
+// **************************************************
+
+// **************************************************
 // *** Category 25 **********************************
 // **************************************************
 // See:
@@ -905,6 +919,9 @@ namespace Models
 		{
 			Name = name;
 
+			//InsertDateTime =
+			//	System.DateTime.Now;
+
 			InsertDateTime =
 				Dtat.Utility.Now;
 
@@ -912,9 +929,6 @@ namespace Models
 		}
 
 		// **********
-		/// <summary>
-		/// Note: private set;
-		/// </summary>
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
 		public System.Guid Id { get; private set; }
@@ -958,8 +972,6 @@ namespace Models
 		// **********
 		// **********
 		// **********
-		[System.ComponentModel.DataAnnotations.Required
-			(AllowEmptyStrings = false)]
 		public System.DateTime InsertDateTime { get; private set; }
 		// **********
 
@@ -973,7 +985,7 @@ namespace Models
 			get
 			{
 				var result =
-					new Dtat.PersianDate(time: InsertDateTime);
+					new Dtat.PersianDate(dateTime: InsertDateTime);
 
 				return result;
 			}
@@ -986,7 +998,7 @@ namespace Models
 			get
 			{
 				var result =
-					new Dtat.PersianDateTime(time: InsertDateTime);
+					new Dtat.PersianDateTime(dateTime: InsertDateTime);
 
 				return result;
 			}
@@ -1039,12 +1051,12 @@ namespace Models
 		// **********
 
 		// **********
-		public Dtat.PersianDate InsertPersianDate
+		public Dtat.PersianDate InsertPersianDateTime
 		{
 			get
 			{
 				var result =
-					new Dtat.PersianDate(time: InsertDateTime);
+					new Dtat.PersianDateTime(dateTime: InsertDateTime);
 
 				return result;
 			}
@@ -1053,6 +1065,8 @@ namespace Models
 		// **********
 		// **********
 
+		// **********
+		// **********
 		// **********
 		/// <summary>
 		/// تبدیل به فیلد می‌شود
@@ -1094,14 +1108,22 @@ namespace Models
 		/// </summary>
 		public int MyProperty16 { get; protected internal set; }
 		// **********
+		// **********
+		// **********
 
+		// **********
+		// **********
 		// **********
 		/// <summary>
 		/// !تبدیل به فیلد نمی‌شود
 		/// </summary>
 		public int MyProperty21 { get; }
 		// **********
+		// **********
+		// **********
 
+		// **********
+		// **********
 		// **********
 		/// <summary>
 		/// !تبدیل به فیلد نمی‌شود
@@ -1109,7 +1131,11 @@ namespace Models
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		public int MyProperty22 { get; set; }
 		// **********
+		// **********
+		// **********
 
+		// **********
+		// **********
 		// **********
 		/// <summary>
 		/// !تبدیل به فیلد نمی‌شود
@@ -1143,6 +1169,8 @@ namespace Models
 		/// !تبدیل به فیلد نمی‌شود
 		/// </summary>
 		protected internal int MyProperty27 { get; set; }
+		// **********
+		// **********
 		// **********
 	}
 }
@@ -1189,12 +1217,12 @@ namespace Models
 		// **********
 
 		// **********
-		public Dtat.PersianDate InsertPersianDate
+		public Dtat.PersianDateTime InsertPersianDateTime
 		{
 			get
 			{
 				var result =
-					new Dtat.PersianDate(time: InsertDateTime);
+					new Dtat.PersianDateTime(dateTime: InsertDateTime);
 
 				return result;
 			}
@@ -1203,6 +1231,7 @@ namespace Models
 		// **********
 		// **********
 
+		// **********
 		/// <summary>
 		/// Order is Zero based!
 		/// Note: Using TypeName is not recommended!
@@ -1220,6 +1249,12 @@ namespace Models
 	}
 }
 // **************************************************
+// **************************************************
+// **************************************************
+
+// **************************************************
+// **************************************************
+// *** Session 17 ***********************************
 // **************************************************
 // **************************************************
 

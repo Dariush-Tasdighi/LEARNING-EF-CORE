@@ -2,10 +2,10 @@
 {
 	public class PersianDateTime : PersianDate
 	{
-		public static string ConvertToDateTime(System.DateTime time)
+		public static string ConvertToDateTime(System.DateTime dateTime)
 		{
 			var persianDateTime =
-				new PersianDateTime(time: time);
+				new PersianDateTime(dateTime: dateTime);
 
 			var result =
 				persianDateTime.ToString();
@@ -13,11 +13,11 @@
 			return result;
 		}
 
-		public PersianDateTime(System.DateTime time) : base(time: time)
+		public PersianDateTime(System.DateTime dateTime) : base(dateTime: dateTime)
 		{
-			Hour = time.Hour;
-			Minute = time.Minute;
-			Second = time.Second;
+			Hour = dateTime.Hour;
+			Minute = dateTime.Minute;
+			Second = dateTime.Second;
 		}
 
 		public int Hour { get; }

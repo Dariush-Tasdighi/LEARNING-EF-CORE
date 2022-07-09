@@ -16,14 +16,17 @@
 				var currentUICulture =
 					System.Threading.Thread.CurrentThread.CurrentUICulture;
 
-				var newCulture =
+				var englishCulture =
 					new System.Globalization.CultureInfo(name: "en-US");
 
-				System.Threading.Thread.CurrentThread.CurrentCulture = newCulture;
-				System.Threading.Thread.CurrentThread.CurrentUICulture = newCulture;
+				System.Threading.Thread.CurrentThread.CurrentCulture = englishCulture;
+				System.Threading.Thread.CurrentThread.CurrentUICulture = englishCulture;
 
 				var result =
 					System.DateTime.Now;
+
+				//var result =
+				//	System.DateTime.Now.AddMinutes(value: 210);
 
 				System.Threading.Thread.CurrentThread.CurrentCulture = currentCulture;
 				System.Threading.Thread.CurrentThread.CurrentUICulture = currentUICulture;
