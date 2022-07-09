@@ -993,7 +993,7 @@ namespace Models
 		// **********
 
 		// **********
-		public Dtat.PersianDate InsertPersianDateTime
+		public Dtat.PersianDateTime InsertPersianDateTime
 		{
 			get
 			{
@@ -1235,16 +1235,15 @@ namespace Models
 		/// <summary>
 		/// Order is Zero based!
 		/// Note: Using TypeName is not recommended!
+		/// 
+		/// Example: Default: nVarChar(100) -> Char(100)
 		/// </summary>
 		[System.ComponentModel.DataAnnotations.Schema.Column
 			(Order = 0, TypeName = "Char")]
 
-		[System.ComponentModel.DataAnnotations.Required
-			(AllowEmptyStrings = false)]
-
 		[System.ComponentModel.DataAnnotations.StringLength
 			(maximumLength: 100)]
-		public string Description { get; set; }
+		public string? Description { get; set; }
 		// **********
 	}
 }
