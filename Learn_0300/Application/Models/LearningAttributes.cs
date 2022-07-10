@@ -1432,11 +1432,21 @@ namespace Models
 	//[Microsoft.EntityFrameworkCore.Index
 	//	(nameof(Username), IsUnique = true)]
 
-	[Microsoft.EntityFrameworkCore.Index
-		(nameof(Username), IsUnique = true, Name = "Googooli")]
+	//[Microsoft.EntityFrameworkCore.Index
+	//	(nameof(Username), IsUnique = true, Name = "Googooli")]
 
 	[Microsoft.EntityFrameworkCore.Index
-		(nameof(FirstName), nameof(LastName), IsUnique = false)]
+		(propertyNames: nameof(Username), IsUnique = true, Name = "Googooli")]
+
+	//[Microsoft.EntityFrameworkCore.Index
+	//	(nameof(FirstName), nameof(LastName), IsUnique = false)]
+
+	// مدل نوشتن ذیل خطا می‌دهد
+	//[Microsoft.EntityFrameworkCore.Index
+	//	(propertyNames: nameof(FirstName), nameof(LastName), IsUnique = false)]
+
+	[Microsoft.EntityFrameworkCore.Index
+		(propertyNames: new[] { nameof(FirstName), nameof(LastName) }, IsUnique = false)]
 
 	// با اجرای دستور ذیل اتفاق جالبی رخ می‌دهد
 	// nvarchar(450)
@@ -1499,13 +1509,6 @@ namespace Models
 {
 	[Microsoft.EntityFrameworkCore.Index
 		(propertyNames: nameof(Username), IsUnique = true)]
-
-	//[Microsoft.EntityFrameworkCore.Index
-	//	(nameof(FirstName), nameof(LastName), IsUnique = false)]
-
-	// مدل نوشتن ذیل خطا می‌دهد
-	//[Microsoft.EntityFrameworkCore.Index
-	//	(propertyNames: nameof(FirstName), nameof(LastName), IsUnique = false)]
 
 	[Microsoft.EntityFrameworkCore.Index
 		(propertyNames: new[] { nameof(FirstName), nameof(LastName) }, IsUnique = false)]
