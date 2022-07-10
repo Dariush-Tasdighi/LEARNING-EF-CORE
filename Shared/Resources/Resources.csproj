@@ -1,11 +1,10 @@
-﻿**************************************************
-Learning Attributes
-**************************************************
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-**************************************************
-هر متن دیگری جز اطلاعات ذیل در فایل
-Resources.csproj
-وجود داشته باشد، یا خطا می‌دهد و یا عمل نمی‌کند
+	<PropertyGroup>
+		<Nullable>enable</Nullable>
+		<TargetFramework>net6.0</TargetFramework>
+		<!--<ImplicitUsings>enable</ImplicitUsings>-->
+	</PropertyGroup>
 
 	<ItemGroup>
 		<Compile Update="DataDictionary.Designer.cs">
@@ -30,4 +29,5 @@ Resources.csproj
 			<LastGenOutput>Validations.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
 	</ItemGroup>
-**************************************************
+
+</Project>

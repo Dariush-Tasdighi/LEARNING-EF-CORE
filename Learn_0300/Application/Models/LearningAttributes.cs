@@ -173,6 +173,7 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
 		public int Id { get; set; }
 		// **********
 
@@ -203,6 +204,7 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
 		public int Id { get; set; }
 		// **********
 
@@ -239,6 +241,7 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
 		public int Id { get; set; }
 		// **********
 
@@ -269,6 +272,7 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
 		public int Id { get; set; }
 		// **********
 
@@ -301,6 +305,7 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
 		public int Id { get; set; }
 		// **********
 
@@ -333,6 +338,7 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
 		public int Id { get; set; }
 		// **********
 
@@ -387,6 +393,7 @@ namespace Models
 		/// <summary>
 		/// Note: private set;
 		/// </summary>
+		[System.ComponentModel.DataAnnotations.Key]
 		public int Id { get; private set; }
 		// **********
 
@@ -428,6 +435,7 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
 		public int Id { get; private set; }
 		// **********
 
@@ -479,6 +487,7 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
 		public int Id { get; private set; }
 		// **********
 
@@ -541,6 +550,8 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
+
 		[System.ComponentModel.DataAnnotations.Schema.Column
 			(name: "CountryId")]
 		public int Id { get; private set; }
@@ -578,6 +589,8 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
+
 		[System.ComponentModel.DataAnnotations.Schema.Column
 			(name: "FIELD_001")]
 		public int Id { get; private set; }
@@ -619,6 +632,7 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
 		public int Id { get; private set; }
 		// **********
 
@@ -661,6 +675,7 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
 		public int Id { get; private set; }
 		// **********
 
@@ -700,6 +715,8 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
+
 		//[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 		//	(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
 
@@ -748,6 +765,7 @@ namespace Models
 		/// بانک اطلاعاتی مقدار آن را
 		/// تولید می‌کند و به سمت برنامه ارسال می‌کند
 		/// </summary>
+		[System.ComponentModel.DataAnnotations.Key]
 		public System.Guid Id { get; private set; }
 		// **********
 
@@ -783,6 +801,8 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
+
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
 		public System.Guid Id { get; private set; }
@@ -820,6 +840,8 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
+
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
 		public System.Guid Id { get; private set; }
@@ -863,6 +885,8 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
+
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
 		public System.Guid Id { get; private set; }
@@ -929,6 +953,8 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
+
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
 		public System.Guid Id { get; private set; }
@@ -1030,6 +1056,8 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
+
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
 		public System.Guid Id { get; private set; }
@@ -1140,7 +1168,7 @@ namespace Models
 		/// <summary>
 		/// !تبدیل به فیلد نمی‌شود
 		/// </summary>
-		private int MyProperty23 { get; set; }
+		//private int MyProperty23 { get; set; }
 		// **********
 
 		// **********
@@ -1196,6 +1224,8 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
+
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
 		public System.Guid Id { get; private set; }
@@ -1314,6 +1344,8 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
+
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
 		public System.Guid Id { get; private set; }
@@ -1358,6 +1390,8 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
+
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
 		public System.Guid Id { get; private set; }
@@ -1418,6 +1452,8 @@ namespace Models
 		}
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Key]
+
 		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
 			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
 		public System.Guid Id { get; private set; }
@@ -1446,6 +1482,241 @@ namespace Models
 
 		// **********
 		public string? Description { get; set; }
+		// **********
+	}
+}
+// **************************************************
+// **************************************************
+// **************************************************
+
+// **************************************************
+// *** User 03 **************************************
+// **************************************************
+// See:
+// CreateUser03Async() Function
+// **************************************************
+namespace Models
+{
+	[Microsoft.EntityFrameworkCore.Index
+		(propertyNames: nameof(Username), IsUnique = true)]
+
+	//[Microsoft.EntityFrameworkCore.Index
+	//	(nameof(FirstName), nameof(LastName), IsUnique = false)]
+
+	// مدل نوشتن ذیل خطا می‌دهد
+	//[Microsoft.EntityFrameworkCore.Index
+	//	(propertyNames: nameof(FirstName), nameof(LastName), IsUnique = false)]
+
+	[Microsoft.EntityFrameworkCore.Index
+		(propertyNames: new[] { nameof(FirstName), nameof(LastName) }, IsUnique = false)]
+	public class User03 : object
+	{
+		public User03(string username) : base()
+		{
+			Ordering = 10_000;
+			Username = username;
+			Id = System.Guid.NewGuid();
+		}
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Key]
+
+		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
+			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
+		public System.Guid Id { get; private set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Range
+			(minimum: 1, maximum: 100_000)]
+		public int Ordering { get; set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Required
+			(AllowEmptyStrings = false)]
+
+		[System.ComponentModel.DataAnnotations.MaxLength
+			(length: 20)]
+		public string Username { get; private set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.MaxLength
+			(length: 20)]
+		public string? FirstName { get; set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.MaxLength
+			(length: 30)]
+		public string? LastName { get; set; }
+		// **********
+	}
+}
+// **************************************************
+// **************************************************
+// **************************************************
+
+// **************************************************
+// *** User 04 **************************************
+// **************************************************
+// See:
+// CreateUser04Async() Function
+// **************************************************
+namespace Models
+{
+	[Microsoft.EntityFrameworkCore.Index
+		(propertyNames: nameof(Username), IsUnique = true)]
+
+	[Microsoft.EntityFrameworkCore.Index
+		(propertyNames: new[] { nameof(FirstName), nameof(LastName) }, IsUnique = false)]
+	public class User04 : object
+	{
+		public User04(string username) : base()
+		{
+			Ordering = 10_000;
+			Username = username;
+			Id = System.Guid.NewGuid();
+		}
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Key]
+
+		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
+			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
+		public System.Guid Id { get; private set; }
+		// **********
+
+		// **********
+		//[System.ComponentModel.DataAnnotations.Range
+		//	(minimum: 1, maximum: 100_000)]
+
+		//[System.ComponentModel.DataAnnotations.Range
+		//	(minimum: 1, maximum: 100_000,
+		//	ErrorMessage = "The Ordering value should be between 1 and 100000!")]
+
+		[System.ComponentModel.DataAnnotations.Range
+			(minimum: 1, maximum: 100_000,
+			ErrorMessage = "The {0} value should be between {1} and {2}!")]
+		public int Ordering { get; set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Required
+			(AllowEmptyStrings = false)]
+
+		[System.ComponentModel.DataAnnotations.MaxLength
+			(length: 20)]
+		public string Username { get; private set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Display
+			(Name = "First Name")]
+
+		[System.ComponentModel.DataAnnotations.MaxLength
+			(length: 20,
+			ErrorMessage = "The {0} value must be a string with a maximum length of '{1}'!")]
+		public string? FirstName { get; set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.MaxLength
+			(length: 30)]
+		public string? LastName { get; set; }
+		// **********
+	}
+}
+// **************************************************
+// **************************************************
+// **************************************************
+
+// **************************************************
+// *** User 05 **************************************
+// **************************************************
+// See:
+// CreateUser05Async() Function
+// **************************************************
+namespace Models
+{
+	[Microsoft.EntityFrameworkCore.Index
+		(propertyNames: nameof(Username), IsUnique = true)]
+
+	[Microsoft.EntityFrameworkCore.Index
+		(propertyNames: new[] { nameof(FirstName), nameof(LastName) }, IsUnique = false)]
+	public class User05 : object
+	{
+		public User05(string username) : base()
+		{
+			Ordering = 10_000;
+			Username = username;
+			Id = System.Guid.NewGuid();
+		}
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Display
+			(ResourceType = typeof(Resources.DataDictionary),
+			Name = nameof(Resources.DataDictionary.Id))]
+
+		[System.ComponentModel.DataAnnotations.Key]
+
+		[System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated
+			(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
+		public System.Guid Id { get; private set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Display
+			(ResourceType = typeof(Resources.DataDictionary),
+			Name = nameof(Resources.DataDictionary.Ordering))]
+
+		[System.ComponentModel.DataAnnotations.Range
+			(minimum: 1, maximum: 100_000,
+			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+			ErrorMessageResourceName = nameof(Resources.Messages.Validations.Range))]
+		public int Ordering { get; set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Display
+			(ResourceType = typeof(Resources.DataDictionary),
+			Name = nameof(Resources.DataDictionary.Username))]
+
+		[System.ComponentModel.DataAnnotations.Required
+			(AllowEmptyStrings = false,
+			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+			ErrorMessageResourceName = nameof(Resources.Messages.Validations.Required))]
+
+		[System.ComponentModel.DataAnnotations.MaxLength
+			(length: 20,
+			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+			ErrorMessageResourceName = nameof(Resources.Messages.Validations.MaxLength))]
+		public string Username { get; private set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Display
+			(ResourceType = typeof(Resources.DataDictionary),
+			Name = nameof(Resources.DataDictionary.FirstName))]
+
+		[System.ComponentModel.DataAnnotations.MaxLength
+			(length: 20,
+			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+			ErrorMessageResourceName = nameof(Resources.Messages.Validations.MaxLength))]
+		public string? FirstName { get; set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Display
+			(ResourceType = typeof(Resources.DataDictionary),
+			Name = nameof(Resources.DataDictionary.LastName))]
+
+		[System.ComponentModel.DataAnnotations.MaxLength
+			(length: 30,
+			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+			ErrorMessageResourceName = nameof(Resources.Messages.Validations.MaxLength))]
+		public string? LastName { get; set; }
 		// **********
 	}
 }

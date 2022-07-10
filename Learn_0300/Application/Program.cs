@@ -50,6 +50,18 @@ namespace Application
 			// **************************************************
 			await CreateCategory25Async();
 			// **************************************************
+
+			// **************************************************
+			await CreateUser03Async();
+			// **************************************************
+
+			// **************************************************
+			await CreateUser04Async();
+			// **************************************************
+
+			// **************************************************
+			await CreateUser05Async();
+			// **************************************************
 		}
 
 		private static async System.Threading.Tasks.Task CreateCategoryAsync()
@@ -497,6 +509,190 @@ namespace Application
 
 				var insertPersianDateTime =
 					category.InsertPersianDateTime;
+			}
+			catch (System.Exception ex)
+			{
+				// Log Error!
+
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
+
+
+
+		private static async System.Threading.Tasks.Task CreateUser03Async()
+		{
+			Models.DatabaseContext? databaseContext = null;
+
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
+
+				var user =
+					new Models.User03(username: "dariush_0123456789_0123456789")
+					{
+						Ordering = -10,
+						FirstName = "Dariush_0123456789_0123456789",
+						LastName = "Tasdighi_0123456789_0123456789_0123456789",
+					};
+
+				var isValid =
+					Models.Utility.IsEntityValid(entity: user);
+
+				var results =
+					Models.Utility.CheckEntityValidation(entity: user);
+
+				// The field Ordering must be between 1 and 100000.
+				// The field Username must be a string or array type with a maximum length of '20'.
+				// The field FirstName must be a string or array type with a maximum length of '20'.
+				// The field LastName must be a string or array type with a maximum length of '30'.
+
+				if (isValid)
+				{
+					var entityEntry =
+						await
+						databaseContext.AddAsync(entity: user);
+
+					int affectedRows =
+						await databaseContext.SaveChangesAsync();
+				}
+			}
+			catch (System.Exception ex)
+			{
+				// Log Error!
+
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
+
+
+
+		private static async System.Threading.Tasks.Task CreateUser04Async()
+		{
+			Models.DatabaseContext? databaseContext = null;
+
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
+
+				var user =
+					new Models.User04(username: "dariush_0123456789_0123456789")
+					{
+						Ordering = -10,
+						FirstName = "Dariush_0123456789_0123456789",
+						LastName = "Tasdighi_0123456789_0123456789_0123456789",
+					};
+
+				var isValid =
+					Models.Utility.IsEntityValid(entity: user);
+
+				var results =
+					Models.Utility.CheckEntityValidation(entity: user);
+
+				// The field Ordering must be between 1 and 100000.
+				// ->
+				// The Ordering value should be between 1 and 100000!
+
+				// The field Username must be a string or array type with a maximum length of '20'.
+
+				// The field FirstName must be a string or array type with a maximum length of '20'.
+				// ->
+				// The First Name value must be a string with a maximum length of '20'!
+
+				// The field LastName must be a string or array type with a maximum length of '30'.
+
+				if (isValid)
+				{
+					var entityEntry =
+						await
+						databaseContext.AddAsync(entity: user);
+
+					int affectedRows =
+						await databaseContext.SaveChangesAsync();
+				}
+			}
+			catch (System.Exception ex)
+			{
+				// Log Error!
+
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
+
+
+
+		private static async System.Threading.Tasks.Task CreateUser05Async()
+		{
+			var cultureInfo =
+				new System.Globalization.CultureInfo(name: "en-US");
+
+			//var cultureInfo =
+			//	new System.Globalization.CultureInfo(name: "fa-IR");
+
+			System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
+			System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
+
+			Models.DatabaseContext? databaseContext = null;
+
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
+
+				//var user =
+				//	new Models.User05(username: null)
+
+				var user =
+					new Models.User05(username: "dariush_0123456789_0123456789")
+					{
+						Ordering = -10,
+						FirstName = "Dariush_0123456789_0123456789",
+						LastName = "Tasdighi_0123456789_0123456789_0123456789",
+					};
+
+				var isValid =
+					Models.Utility.IsEntityValid(entity: user);
+
+				var results =
+					Models.Utility.CheckEntityValidation(entity: user);
+
+				// مقدار فیلد 'چیدمان' باید بین '1' و '100000' باشد
+				// تکمیل فیلد 'شناسه‌کاربری' الزامی است
+				// طول متن فیلد 'نام' باید حداکثر '20' کاراکتر باشد
+				// طول متن فیلد 'نام خانوادگی' باید حداکثر '30' کاراکتر باشد
+
+				if (isValid)
+				{
+					var entityEntry =
+						await
+						databaseContext.AddAsync(entity: user);
+
+					int affectedRows =
+						await databaseContext.SaveChangesAsync();
+				}
 			}
 			catch (System.Exception ex)
 			{

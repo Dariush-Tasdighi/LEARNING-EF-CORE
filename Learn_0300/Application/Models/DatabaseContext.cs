@@ -76,11 +76,9 @@ namespace Models
 
 		public Microsoft.EntityFrameworkCore.DbSet<User02> Users02 { get; set; }
 
-		//public Microsoft.EntityFrameworkCore.DbSet<Category28> Categories28 { get; set; }
+		public Microsoft.EntityFrameworkCore.DbSet<User03> Users03 { get; set; }
 
-		//public Microsoft.EntityFrameworkCore.DbSet<Category29> Categories29 { get; set; }
-
-		//public Microsoft.EntityFrameworkCore.DbSet<Category3> Categories3 { get; set; }
+		public Microsoft.EntityFrameworkCore.DbSet<User04> Users04 { get; set; }
 
 		protected override void OnConfiguring
 			(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder optionsBuilder)
