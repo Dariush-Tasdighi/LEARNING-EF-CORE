@@ -1,12 +1,12 @@
 ﻿namespace Models
 {
-	public static class Utility
+	public static class ValidationHelper
 	{
-		static Utility()
+		static ValidationHelper()
 		{
 		}
 
-		public static bool IsEntityValid(object entity)
+		public static bool IsValid(object entity)
 		{
 			var validationContext =
 				new System.ComponentModel.DataAnnotations.ValidationContext(instance: entity);
@@ -23,7 +23,7 @@
 		}
 
 		public static System.Collections.Generic.IList<System.ComponentModel.DataAnnotations.ValidationResult>
-			CheckEntityValidation(object entity)
+			GetValidationResults(object entity)
 		{
 			var validationContext =
 				new System.ComponentModel.DataAnnotations.ValidationContext(instance: entity);

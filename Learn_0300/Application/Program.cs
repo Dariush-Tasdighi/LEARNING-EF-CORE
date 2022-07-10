@@ -545,10 +545,10 @@ namespace Application
 					};
 
 				var isValid =
-					Models.Utility.IsEntityValid(entity: user);
+					Models.ValidationHelper.IsValid(entity: user);
 
 				var results =
-					Models.Utility.CheckEntityValidation(entity: user);
+					Models.ValidationHelper.GetValidationResults(entity: user);
 
 				// The field Ordering must be between 1 and 100000.
 				// The field Username must be a string or array type with a maximum length of '20'.
@@ -600,10 +600,10 @@ namespace Application
 					};
 
 				var isValid =
-					Models.Utility.IsEntityValid(entity: user);
+					Models.ValidationHelper.IsValid(entity: user);
 
 				var results =
-					Models.Utility.CheckEntityValidation(entity: user);
+					Models.ValidationHelper.GetValidationResults(entity: user);
 
 				// The field Ordering must be between 1 and 100000.
 				// ->
@@ -674,10 +674,10 @@ namespace Application
 					};
 
 				var isValid =
-					Models.Utility.IsEntityValid(entity: user);
+					Models.ValidationHelper.IsValid(entity: user);
 
 				var results =
-					Models.Utility.CheckEntityValidation(entity: user);
+					Models.ValidationHelper.GetValidationResults(entity: user);
 
 				// مقدار فیلد 'چیدمان' باید بین '1' و '100000' باشد
 				// تکمیل فیلد 'شناسه‌کاربری' الزامی است
