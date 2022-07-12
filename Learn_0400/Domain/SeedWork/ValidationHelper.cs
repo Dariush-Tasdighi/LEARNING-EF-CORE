@@ -1,4 +1,4 @@
-﻿namespace Models
+﻿namespace Domain.SeedWork
 {
 	public static class ValidationHelper : object
 	{

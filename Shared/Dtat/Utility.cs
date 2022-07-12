@@ -1,6 +1,6 @@
 ﻿namespace Dtat
 {
-	public static class Utility
+	public static class Utility : object
 	{
 		static Utility()
 		{

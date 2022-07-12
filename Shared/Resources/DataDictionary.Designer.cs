@@ -61,11 +61,56 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Admin Description.
+        /// </summary>
+        public static string AdminDescription {
+            get {
+                return ResourceManager.GetString("AdminDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cell Phone Number.
+        /// </summary>
+        public static string CellPhoneNumber {
+            get {
+                return ResourceManager.GetString("CellPhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cell Phone Number Verification Key.
+        /// </summary>
+        public static string CellPhoneNumberVerificationKey {
+            get {
+                return ResourceManager.GetString("CellPhoneNumberVerificationKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string Description {
             get {
                 return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Address.
+        /// </summary>
+        public static string EmailAddress {
+            get {
+                return ResourceManager.GetString("EmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Address Verification Key.
+        /// </summary>
+        public static string EmailAddressVerificationKey {
+            get {
+                return ResourceManager.GetString("EmailAddressVerificationKey", resourceCulture);
             }
         }
         
@@ -115,11 +160,83 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string IsActive {
+            get {
+                return ResourceManager.GetString("IsActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cell Phone Number Verified.
+        /// </summary>
+        public static string IsCellPhoneNumberVerified {
+            get {
+                return ResourceManager.GetString("IsCellPhoneNumberVerified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Address Verified.
+        /// </summary>
+        public static string IsEmailAddressVerified {
+            get {
+                return ResourceManager.GetString("IsEmailAddressVerified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile is Public.
+        /// </summary>
+        public static string IsProfilePublic {
+            get {
+                return ResourceManager.GetString("IsProfilePublic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Programmer.
+        /// </summary>
+        public static string IsProgrammer {
+            get {
+                return ResourceManager.GetString("IsProgrammer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Systemic.
+        /// </summary>
+        public static string IsSystemic {
+            get {
+                return ResourceManager.GetString("IsSystemic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Undeletable.
+        /// </summary>
+        public static string IsUndeletable {
+            get {
+                return ResourceManager.GetString("IsUndeletable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last Name.
         /// </summary>
         public static string LastName {
             get {
                 return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
             }
         }
         
@@ -138,6 +255,24 @@ namespace Resources {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Role.
+        /// </summary>
+        public static string Role {
+            get {
+                return ResourceManager.GetString("Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
             }
         }
         
