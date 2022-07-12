@@ -646,11 +646,11 @@ namespace Application
 
 		private static async System.Threading.Tasks.Task CreateUser05Async()
 		{
-			var cultureInfo =
-				new System.Globalization.CultureInfo(name: "en-US");
-
 			//var cultureInfo =
-			//	new System.Globalization.CultureInfo(name: "fa-IR");
+			//	new System.Globalization.CultureInfo(name: "en-US");
+
+			var cultureInfo =
+				new System.Globalization.CultureInfo(name: "fa-IR");
 
 			System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
 			System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
