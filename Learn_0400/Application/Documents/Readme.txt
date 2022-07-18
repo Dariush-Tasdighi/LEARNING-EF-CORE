@@ -25,6 +25,7 @@ Data (DAL, Dal, DataAccess, Data, Persistence)
 Application
 
 	Data
+	Dtat
 	Domain
 	Resources
 
@@ -46,6 +47,10 @@ Domain (Class Library)
 		Users (Folder)
 
 			User.cs (Aggregate Root)
+	->
+
+	Role.cs
+	User.cs
 **************************************************
 
 **************************************************
