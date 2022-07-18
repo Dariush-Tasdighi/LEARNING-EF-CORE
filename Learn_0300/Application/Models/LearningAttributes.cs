@@ -704,7 +704,7 @@ namespace Models
 	/// In C#				In SQL Server Database
 	/// 
 	/// int					int
-	/// long				long
+	/// long				bigint
 	/// System.Guid			uniqueidentifier
 	/// </summary>
 	public class Category20 : object

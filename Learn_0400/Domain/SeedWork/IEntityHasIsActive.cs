@@ -1,7 +1,7 @@
 ﻿namespace Domain.SeedWork
 {
-	public interface IEntityCanSetId
+	public interface IEntityHasIsActive
 	{
-		void SetId(System.Guid id);
+		bool IsActive { get; set; }
 	}
 }

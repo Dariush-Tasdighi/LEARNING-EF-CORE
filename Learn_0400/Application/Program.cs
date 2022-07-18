@@ -25,26 +25,37 @@ namespace Application
 				databaseContext =
 					new Data.DatabaseContext();
 
-				var user =
-					new Domain.Role(name: "مدیر ارشد")
-					{
-						IsActive = true,
-					};
+				var roleName = "مدیر";
 
-				var isValid =
-					Domain.SeedWork.ValidationHelper.IsValid(entity: user);
+				var foundedRole =
+					await
+					databaseContext.Roles
+					.Where(current => current.Name.ToLower() == roleName.ToLower())
+					.FirstOrDefaultAsync();
 
-				var results =
-					Domain.SeedWork.ValidationHelper.GetValidationResults(entity: user);
-
-				if (isValid)
+				if (foundedRole == null)
 				{
-					var entityEntry =
-						await
-						databaseContext.AddAsync(entity: user);
+					var user =
+						new Domain.Role(name: "مدیر")
+						{
+							IsActive = true,
+						};
 
-					int affectedRows =
-						await databaseContext.SaveChangesAsync();
+					var isValid =
+						Domain.SeedWork.ValidationHelper.IsValid(entity: user);
+
+					var results =
+						Domain.SeedWork.ValidationHelper.GetValidationResults(entity: user);
+
+					if (isValid)
+					{
+						var entityEntry =
+							await
+							databaseContext.AddAsync(entity: user);
+
+						var affectedRows =
+							await databaseContext.SaveChangesAsync();
+					}
 				}
 			}
 			catch (System.Exception ex)

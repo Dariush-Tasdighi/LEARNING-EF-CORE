@@ -94,7 +94,7 @@
 		}
 
 		// **********
-		public virtual System.Collections.Generic.IList<User> Users { get; set; }
+		public virtual System.Collections.Generic.IList<User> Users { get; private set; }
 		// **********
 	}
 }

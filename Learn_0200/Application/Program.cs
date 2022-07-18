@@ -364,7 +364,7 @@
 //					}
 //				}
 
-//				int id =
+//				var id =
 //					category.Id;
 
 //				// خطا می‌دهد EF Core در

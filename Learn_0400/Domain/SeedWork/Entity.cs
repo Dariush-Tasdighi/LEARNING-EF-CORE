@@ -1,6 +1,6 @@
 ﻿namespace Domain.SeedWork
 {
-	public abstract class Entity : object
+	public abstract class Entity : object, IEntity
 	{
 		public Entity() : base()
 		{

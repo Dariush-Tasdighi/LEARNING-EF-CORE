@@ -25,7 +25,8 @@ namespace Data
 				"Server=.;Database=LEARNING_EF_CORE_0400;MultipleActiveResultSets=true;User ID=sa;Password=1234512345;";
 
 			// UseSqlServer() -> using Microsoft.EntityFrameworkCore;
-			optionsBuilder.UseSqlServer(connectionString: connectionString);
+			optionsBuilder.UseSqlServer
+				(connectionString: connectionString);
 		}
 
 		//protected override void OnModelCreating(ModelBuilder modelBuilder)

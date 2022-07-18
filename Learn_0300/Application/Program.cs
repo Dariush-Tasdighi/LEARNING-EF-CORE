@@ -323,7 +323,7 @@ namespace Application
 					await
 					databaseContext.AddAsync(entity: category);
 
-				int affectedRows =
+				var affectedRows =
 					await databaseContext.SaveChangesAsync();
 
 				var id =
@@ -410,7 +410,7 @@ namespace Application
 				// آی‌دی را محاسبه کرده و ارسال می‌کند SaveChanges دقت کنید که قبل از
 				id = category.Id;
 
-				int affectedRows =
+				var affectedRows =
 					await databaseContext.SaveChangesAsync();
 
 				id = category.Id;
@@ -456,7 +456,7 @@ namespace Application
 				// صدق نمی‌کند Code دقت کنید که نکته تابع قبل در خصوص
 				code = category.Code;
 
-				int affectedRows =
+				var affectedRows =
 					await databaseContext.SaveChangesAsync();
 
 				id = category.Id;
@@ -495,7 +495,7 @@ namespace Application
 					await
 					databaseContext.AddAsync(entity: category);
 
-				int affectedRows =
+				var affectedRows =
 					await databaseContext.SaveChangesAsync();
 
 				var id = category.Id;
@@ -561,7 +561,7 @@ namespace Application
 						await
 						databaseContext.AddAsync(entity: user);
 
-					int affectedRows =
+					var affectedRows =
 						await databaseContext.SaveChangesAsync();
 				}
 			}
@@ -623,7 +623,7 @@ namespace Application
 						await
 						databaseContext.AddAsync(entity: user);
 
-					int affectedRows =
+					var affectedRows =
 						await databaseContext.SaveChangesAsync();
 				}
 			}
@@ -690,7 +690,7 @@ namespace Application
 						await
 						databaseContext.AddAsync(entity: user);
 
-					int affectedRows =
+					var affectedRows =
 						await databaseContext.SaveChangesAsync();
 				}
 			}
