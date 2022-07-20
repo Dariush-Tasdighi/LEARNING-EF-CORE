@@ -39,38 +39,30 @@ namespace Data
 			// Solution (1)
 			//modelBuilder
 			//	.Entity<Domain.Role>()
-			//	.HasIndex(current => current.Name)
+			//	.HasIndex(current => new { current.Name })
 			//	.IsUnique(unique: true)
 			//	;
 			// /Solution (1)
 
 			// Solution (2)
-			//modelBuilder
-			//	.Entity<Domain.Role>()
-			//	.HasIndex(current => new { current.Name })
-			//	.IsUnique(unique: true)
-			//	;
+			//modelBuilder.ApplyConfiguration
+			//	(configuration: new Configurations.RoleConfiguration());
 			// /Solution (2)
 
 			// Solution (3)
-			//modelBuilder.ApplyConfiguration
-			//	(configuration: new Configurations.RoleConfiguration());
+			//new Configurations.RoleConfiguration()
+			//	.Configure(builder: modelBuilder.Entity<Domain.Role>());
 			// /Solution (3)
 
 			// Solution (4)
-			//new Configurations.RoleConfiguration()
-			//	.Configure(builder: modelBuilder.Entity<Domain.Role>());
+			//modelBuilder.ApplyConfigurationsFromAssembly
+			//	(assembly: System.Reflection.Assembly.GetExecutingAssembly());
 			// /Solution (4)
 
 			// Solution (5)
-			//modelBuilder.ApplyConfigurationsFromAssembly
-			//	(assembly: System.Reflection.Assembly.GetExecutingAssembly());
-			// /Solution (5)
-
-			// Solution (6)
 			modelBuilder.ApplyConfigurationsFromAssembly
 				(assembly: typeof(Configurations.RoleConfiguration).Assembly);
-			// /Solution (6)
+			// /Solution (5)
 		}
 	}
 }
