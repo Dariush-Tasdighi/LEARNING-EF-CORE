@@ -12,11 +12,11 @@ namespace Application
 		public static async System.Threading.Tasks.Task Main()
 		{
 			// **************************************************
-			await CreateRole01Async();
+			await CreateRoleAsync();
 			// **************************************************
 		}
 
-		private static async System.Threading.Tasks.Task CreateRole01Async()
+		private static async System.Threading.Tasks.Task CreateRoleAsync()
 		{
 			Data.DatabaseContext? databaseContext = null;
 
@@ -35,23 +35,23 @@ namespace Application
 
 				if (foundedRole == null)
 				{
-					var user =
+					var role =
 						new Domain.Role(name: "مدیر")
 						{
 							IsActive = true,
 						};
 
 					var isValid =
-						Domain.SeedWork.ValidationHelper.IsValid(entity: user);
+						Domain.SeedWork.ValidationHelper.IsValid(entity: role);
 
 					var results =
-						Domain.SeedWork.ValidationHelper.GetValidationResults(entity: user);
+						Domain.SeedWork.ValidationHelper.GetValidationResults(entity: role);
 
 					if (isValid)
 					{
 						var entityEntry =
 							await
-							databaseContext.AddAsync(entity: user);
+							databaseContext.AddAsync(entity: role);
 
 						var affectedRows =
 							await databaseContext.SaveChangesAsync();

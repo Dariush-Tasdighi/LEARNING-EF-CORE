@@ -76,8 +76,15 @@ Domain (Class Library)
 			- Relation One to Many (Role -> User)
 			- public static readonly System.Guid UserRoleId =
 				new(g: "2A533503-E7E1-4E08-98DD-33973A69AE15");
-			- We do not use 'Index' attribute! Instead we use in Fluent API
-3.7- Fluent API
+			- We use Fluent API for indexing instead of 'Index' attribute!
+**************************************************
+
+**************************************************
+**************************************************
+*** Session 20 ***********************************
+**************************************************
+**************************************************
+1- Fluent API
 	- In 'Data' class library:
 		- DatabaseContext
 			- DbSet<Domain.Role> Roles { get; set; }
@@ -86,7 +93,26 @@ Domain (Class Library)
 			- RoleConfiguration.cs
 				- 'Index' Techniques
 				- 'One To Many' Techniques
+					- Convention Naming in two Models (Navigation Properties)
+					- HasMany
+					- WithOne
+					- HasForeignKey
+					- OnDelete
 				- Seed Data with 'HasData'
-3.8- In 'Application' project:
+2- In 'Application' project:
 	- Program.cs
+**************************************************
+Convention Naming in two Models (Navigation Properties):
+
+[Role]					[User]
+
+Guid Id					Guid Id
+						Guid RoleId
+
+IList<User> Users		Role Role
+**************************************************
+ادامه دوره
+
+ASP.NET Core Razor Pages: CRUD Template
+ASP.NET Core Security   : User And The Other Models
 **************************************************
