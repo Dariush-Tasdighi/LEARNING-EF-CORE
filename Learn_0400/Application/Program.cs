@@ -18,6 +18,10 @@ namespace Application
 			// **************************************************
 			await CreateUserAsync();
 			// **************************************************
+
+			// **************************************************
+			await CreateSomeUserLoginsAsync();
+			// **************************************************
 		}
 
 		private static async System.Threading.Tasks.Task CreateRoleAsync()
@@ -146,6 +150,72 @@ namespace Application
 
 					var affectedRows =
 						await databaseContext.SaveChangesAsync();
+				}
+			}
+			catch (System.Exception ex)
+			{
+				// Log Error!
+
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
+
+		private static async System.Threading.Tasks.Task CreateSomeUserLoginsAsync()
+		{
+			Data.DatabaseContext? databaseContext = null;
+
+			try
+			{
+				databaseContext =
+					new Data.DatabaseContext();
+
+				var emailAddress =
+					"DariushTasdighi@GMail.com";
+
+				var foundedUser =
+					await
+					databaseContext.Users
+					.Where(current => current.EmailAddress.ToLower() == emailAddress.ToLower())
+					.FirstOrDefaultAsync();
+
+				if (foundedUser == null)
+				{
+					System.Console.WriteLine
+						(value: $"There is not such as user [{emailAddress}]!");
+
+					return;
+				}
+
+				for (int index = 1; index <= 5; index++)
+				{
+					var usesrIP =
+						$"{index}.{index}.{index}.{index}";
+
+					var userLogin =
+						new Domain.UserLogin(userId: foundedUser.Id, userIP: usesrIP);
+
+					var isValid =
+						Domain.SeedWork.ValidationHelper.IsValid(entity: userLogin);
+
+					var results =
+						Domain.SeedWork.ValidationHelper.GetValidationResults(entity: userLogin);
+
+					if (isValid)
+					{
+						var entityEntry =
+							await
+							databaseContext.AddAsync(entity: userLogin);
+
+						var affectedRows =
+							await databaseContext.SaveChangesAsync();
+					}
 				}
 			}
 			catch (System.Exception ex)

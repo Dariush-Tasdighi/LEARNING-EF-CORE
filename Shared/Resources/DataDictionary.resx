@@ -150,6 +150,9 @@
   <data name="InsertDateTime" xml:space="preserve">
     <value>Insert Date Time</value>
   </data>
+  <data name="IP" xml:space="preserve">
+    <value>IP</value>
+  </data>
   <data name="IsActive" xml:space="preserve">
     <value>Active</value>
   </data>
@@ -194,6 +197,9 @@
   </data>
   <data name="UpdateDateTime" xml:space="preserve">
     <value>Update Date Time</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>

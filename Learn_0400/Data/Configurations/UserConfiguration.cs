@@ -11,6 +11,8 @@
 			(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Domain.User> builder)
 		{
 			// **************************************************
+			// **************************************************
+			// **************************************************
 			builder
 				.Property(current => current.EmailAddress)
 				.IsUnicode(unicode: false)
@@ -85,6 +87,23 @@
 				.Property(current => current.Password)
 				.IsUnicode(unicode: false)
 				;
+			// **************************************************
+			// **************************************************
+			// **************************************************
+
+			// **************************************************
+			// **************************************************
+			// **************************************************
+			builder
+				.HasMany(current => current.UserLogins)
+				.WithOne(other => other.User)
+				.IsRequired(required: true)
+				.HasForeignKey(other => other.UserId)
+				.OnDelete(deleteBehavior:
+					Microsoft.EntityFrameworkCore.DeleteBehavior.Cascade)
+				;
+			// **************************************************
+			// **************************************************
 			// **************************************************
 
 			// **************************************************

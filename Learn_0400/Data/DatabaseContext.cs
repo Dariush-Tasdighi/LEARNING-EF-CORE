@@ -18,6 +18,8 @@ namespace Data
 
 		public Microsoft.EntityFrameworkCore.DbSet<Domain.User> Users { get; set; }
 
+		public Microsoft.EntityFrameworkCore.DbSet<Domain.UserLogin> UserLogins { get; set; }
+
 		protected override void OnConfiguring
 			(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder optionsBuilder)
 		{

@@ -150,6 +150,9 @@
   <data name="InsertDateTime" xml:space="preserve">
     <value>زمان ایجاد</value>
   </data>
+  <data name="IP" xml:space="preserve">
+    <value>آی‌پی</value>
+  </data>
   <data name="IsActive" xml:space="preserve">
     <value>فعال</value>
   </data>
@@ -194,6 +197,9 @@
   </data>
   <data name="UpdateDateTime" xml:space="preserve">
     <value>زمان ویرایش</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>کاربر</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>شناسه‌کاربری</value>
