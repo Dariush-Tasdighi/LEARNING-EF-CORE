@@ -116,3 +116,19 @@ IList<User> Users		Role Role
 ASP.NET Core Razor Pages: CRUD Template
 ASP.NET Core Security   : User And The Other Models
 **************************************************
+
+**************************************************
+**************************************************
+*** Session 21 ***********************************
+**************************************************
+**************************************************
+1- Role.cs
+
+	DefaultRoleId
+
+2- User
+
+	- UserConfiguration
+
+		- Index / Unique null fields!
+

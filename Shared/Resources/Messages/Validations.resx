@@ -126,6 +126,9 @@
   <data name="MaxLength" xml:space="preserve">
     <value>The '{0}' value must be a string with a maximum length of '{1}'!</value>
   </data>
+  <data name="MinLength" xml:space="preserve">
+    <value>The '{0}' value must be a string with a minimum length of '{1}'!</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>'{0}' is not valid!</value>
   </data>

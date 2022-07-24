@@ -91,7 +91,7 @@
 			// **************************************************
 			// **************************************************
 			var user =
-				new Domain.User(emailAddress: "DariushT@GMail.com", roleId: Domain.Role.UserRoleId)
+				new Domain.User(emailAddress: "DariushT@GMail.com", roleId: Domain.Role.DefaultRoleId)
 				{
 					//Id,
 					//Role,
@@ -106,6 +106,7 @@
 
 					IsActive = true,
 					IsSystemic = true,
+					IsProgrammer = true,
 					IsUndeletable = true,
 					IsProfilePublic = true,
 					IsEmailAddressVerified = true,
@@ -117,6 +118,7 @@
 					Username = "Dariush",
 					FullName = "داریوش تصدیقی",
 					CellPhoneNumber = "09121087461",
+
 					Password =
 						Dtat.Hashing.GetSha256(text: "1234512345"),
 				};

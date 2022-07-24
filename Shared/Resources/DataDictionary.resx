@@ -156,6 +156,9 @@
   <data name="IsCellPhoneNumberVerified" xml:space="preserve">
     <value>Cell Phone Number Verified</value>
   </data>
+  <data name="IsDefault" xml:space="preserve">
+    <value>Default</value>
+  </data>
   <data name="IsEmailAddressVerified" xml:space="preserve">
     <value>Email Address Verified</value>
   </data>

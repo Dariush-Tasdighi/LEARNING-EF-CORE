@@ -69,7 +69,7 @@
 					Description = null,
 				};
 
-			role.SetId(id: Domain.Role.UserRoleId);
+			role.SetId(id: Domain.Role.DefaultRoleId);
 
 			builder.HasData(data: role);
 			// **************************************************

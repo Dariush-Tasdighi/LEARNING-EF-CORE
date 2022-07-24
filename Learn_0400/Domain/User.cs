@@ -9,12 +9,14 @@
 		SeedWork.IEntityHasUpdateDateTime
 	{
 		#region Static(s)
-		public static readonly System.Guid SuperUserId = new(g: "CC75D635-EF6D-4E86-907A-BC532CDC3ACC");
+		public static readonly System.Guid
+			SuperUserId = new(g: "CC75D635-EF6D-4E86-907A-BC532CDC3ACC");
 		#endregion /Static(s)
 
 		public User(string emailAddress, System.Guid roleId) : base()
 		{
-			SetUpdateDateTime();
+			//SetUpdateDateTime();
+			UpdateDateTime = InsertDateTime;
 
 			RoleId = roleId;
 			EmailAddress = emailAddress;
@@ -39,9 +41,10 @@
 			(ResourceType = typeof(Resources.DataDictionary),
 			Name = nameof(Resources.DataDictionary.Role))]
 
-		[System.ComponentModel.DataAnnotations.Required
-			(ErrorMessageResourceType = typeof(Resources.Messages.Validations),
-			ErrorMessageResourceName = nameof(Resources.Messages.Validations.Required))]
+		// نکته مهم: نباید دستور ذیل نوشته شود
+		//[System.ComponentModel.DataAnnotations.Required
+		//	(ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+		//	ErrorMessageResourceName = nameof(Resources.Messages.Validations.Required))]
 		public virtual Role? Role { get; set; }
 		// **********
 		// **********
@@ -59,6 +62,13 @@
 			(ResourceType = typeof(Resources.DataDictionary),
 			Name = nameof(Resources.DataDictionary.IsSystemic))]
 		public bool IsSystemic { get; set; }
+		// **********
+
+		// **********
+		[System.ComponentModel.DataAnnotations.Display
+			(ResourceType = typeof(Resources.DataDictionary),
+			Name = nameof(Resources.DataDictionary.IsProgrammer))]
+		public bool IsProgrammer { get; set; }
 		// **********
 
 		// **********
@@ -127,15 +137,22 @@
 			(ResourceType = typeof(Resources.DataDictionary),
 			Name = nameof(Resources.DataDictionary.Password))]
 
+		[System.ComponentModel.DataAnnotations.MinLength
+			(length: SeedWork.Constant.MaxLength.DatabasePassword,
+			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+			ErrorMessageResourceName = nameof(Resources.Messages.Validations.MinLength))]
+
 		[System.ComponentModel.DataAnnotations.MaxLength
-			(length: SeedWork.Constant.MaxLength.Password,
+			(length: SeedWork.Constant.MaxLength.DatabasePassword,
 			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
 			ErrorMessageResourceName = nameof(Resources.Messages.Validations.MaxLength))]
 
-		[System.ComponentModel.DataAnnotations.RegularExpression
-			(pattern: SeedWork.Constant.RegularExpression.Password,
-			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
-			ErrorMessageResourceName = nameof(Resources.Messages.Validations.Password))]
+		// نکته مهم: دستور ذیل نباید نوشته شود
+		// ها می‌باشد ViewModel دستور ذیل مربوط به
+		//[System.ComponentModel.DataAnnotations.RegularExpression
+		//	(pattern: SeedWork.Constant.RegularExpression.Password,
+		//	ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+		//	ErrorMessageResourceName = nameof(Resources.Messages.Validations.Password))]
 		public string? Password { get; set; }
 		// **********
 
@@ -169,7 +186,7 @@
 			(length: SeedWork.Constant.MaxLength.FullName,
 			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
 			ErrorMessageResourceName = nameof(Resources.Messages.Validations.MaxLength))]
-		public string FullName { get; set; }
+		public string? FullName { get; set; }
 		// **********
 
 		// **********

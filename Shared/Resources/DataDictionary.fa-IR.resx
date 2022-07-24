@@ -156,6 +156,9 @@
   <data name="IsCellPhoneNumberVerified" xml:space="preserve">
     <value>شماره تلفن همراه تایید شده</value>
   </data>
+  <data name="IsDefault" xml:space="preserve">
+    <value>پیش‌فرض</value>
+  </data>
   <data name="IsEmailAddressVerified" xml:space="preserve">
     <value>نشانی پست الکترونیکی تایید شده</value>
   </data>

@@ -126,6 +126,9 @@
   <data name="MaxLength" xml:space="preserve">
     <value>طول متن فیلد '{0}' باید حداکثر '{1}' کاراکتر باشد!</value>
   </data>
+  <data name="MinLength" xml:space="preserve">
+    <value>طول متن فیلد '{0}' باید حداقل '{1}' کاراکتر باشد!</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>'{0}' معتبر نمی‌باشد!</value>
   </data>

@@ -12,7 +12,8 @@
 		SeedWork.IEntityHasUpdateDateTime
 	{
 		#region Static(s)
-		public static readonly System.Guid UserRoleId = new(g: "2A533503-E7E1-4E08-98DD-33973A69AE15");
+		public static readonly System.Guid
+			DefaultRoleId = new(g: "2A533503-E7E1-4E08-98DD-33973A69AE15");
 		#endregion /Static(s)
 
 		#region Constructor
@@ -20,7 +21,8 @@
 		{
 			Name = name;
 
-			SetUpdateDateTime();
+			//SetUpdateDateTime();
+			UpdateDateTime = InsertDateTime;
 
 			Users =
 				new System.Collections.Generic.List<User>();
