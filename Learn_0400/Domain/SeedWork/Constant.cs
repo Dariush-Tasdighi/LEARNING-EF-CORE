@@ -6,6 +6,27 @@
 		{
 		}
 
+		public static class FixedLength : object
+		{
+			static FixedLength()
+			{
+			}
+
+			public const int NationalCode = 10;
+			public const int DatabasePassword = 44;
+
+			public const int CellPhoneNumber = 11;
+		}
+
+		public static class MinLength : object
+		{
+			static MinLength()
+			{
+			}
+
+			public const int CellPhoneNumberVerificationKey = 6;
+		}
+
 		public static class MaxLength : object
 		{
 			static MaxLength()
@@ -20,13 +41,9 @@
 			public const int Username = 20;
 			public const int FullName = 50;
 			public const int Password = 20;
-			public const int NationalCode = 10;
-			public const int DatabasePassword = 44;
 
 			public const int EmailAddress = 254;
-			public const int EmailAddressVerificationKey = 64;
 
-			public const int CellPhoneNumber = 14;
 			public const int CellPhoneNumberVerificationKey = 10;
 		}
 
@@ -46,7 +63,7 @@
 				@"^[a-zA-Z][a-zA-Z0-9_]{7,20}$";
 
 			public const string CellPhoneNumber =
-				@"^00989\d{9}$";
+				@"^09\d{9}$";
 
 			public const string AToZDigitsUnderline =
 				@"^[a-zA-Z][a-zA-Z0-9_]*$";

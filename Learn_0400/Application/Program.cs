@@ -22,6 +22,10 @@ namespace Application
 			// **************************************************
 			await CreateSomeUserLoginsAsync();
 			// **************************************************
+
+			// **************************************************
+			await DeleteUserAsync();
+			// **************************************************
 		}
 
 		private static async System.Threading.Tasks.Task CreateRoleAsync()
@@ -68,7 +72,8 @@ namespace Application
 						databaseContext.AddAsync(entity: role);
 
 					var affectedRows =
-						await databaseContext.SaveChangesAsync();
+						await
+						databaseContext.SaveChangesAsync();
 				}
 			}
 			catch (System.Exception ex)
@@ -132,6 +137,8 @@ namespace Application
 						IsActive = true,
 						IsEmailAddressVerified = true,
 
+						CellPhoneNumber = "09121086174",
+
 						Password =
 							Dtat.Hashing.GetSha256(text: "1234512345"),
 					};
@@ -149,7 +156,8 @@ namespace Application
 						databaseContext.AddAsync(entity: user);
 
 					var affectedRows =
-						await databaseContext.SaveChangesAsync();
+						await
+						databaseContext.SaveChangesAsync();
 				}
 			}
 			catch (System.Exception ex)
@@ -214,9 +222,58 @@ namespace Application
 							databaseContext.AddAsync(entity: userLogin);
 
 						var affectedRows =
-							await databaseContext.SaveChangesAsync();
+							await
+							databaseContext.SaveChangesAsync();
 					}
 				}
+			}
+			catch (System.Exception ex)
+			{
+				// Log Error!
+
+				System.Console.WriteLine(value: ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					await databaseContext.DisposeAsync();
+				}
+			}
+		}
+
+		private static async System.Threading.Tasks.Task DeleteUserAsync()
+		{
+			Data.DatabaseContext? databaseContext = null;
+
+			try
+			{
+				databaseContext =
+					new Data.DatabaseContext();
+
+				var emailAddress =
+					"DariushTasdighi@GMail.com";
+
+				var foundedUser =
+					await
+					databaseContext.Users
+					.Where(current => current.EmailAddress.ToLower() == emailAddress.ToLower())
+					.FirstOrDefaultAsync();
+
+				if (foundedUser == null)
+				{
+					System.Console.WriteLine
+						(value: $"There is not such as user [{emailAddress}]!");
+
+					return;
+				}
+
+				var entityEntry =
+					databaseContext.Remove(entity: foundedUser);
+
+				var affectedRows =
+					await
+					databaseContext.SaveChangesAsync();
 			}
 			catch (System.Exception ex)
 			{

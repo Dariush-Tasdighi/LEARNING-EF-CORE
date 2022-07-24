@@ -124,11 +124,129 @@ ASP.NET Core Security   : User And The Other Models
 **************************************************
 1- Role.cs
 
-	DefaultRoleId
+	- DefaultRoleId
 
-2- User
+	- Constructor
 
-	- UserConfiguration
+		//SetUpdateDateTime();
+		UpdateDateTime = InsertDateTime;
 
-		- Index / Unique null fields!
+2- User.cs
 
+	// **********
+	- SuperUserId
+	// **********
+
+	// **********
+	- Constructor
+
+		UserLogins =
+			new System.Collections.Generic.List<UserLogin>();
+	// **********
+
+	// **********
+	// نکته مهم: نباید دستور ذیل نوشته شود
+	//[System.ComponentModel.DataAnnotations.Required
+	//	(ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+	//	ErrorMessageResourceName = nameof(Resources.Messages.Validations.Required))]
+	public virtual Role? Role { get; set; }
+	// **********
+
+	// **********
+	public bool IsProgrammer { get; set; }
+	// **********
+
+	// **********
+	public bool IsProfilePublic { get; set; }
+	// **********
+
+	// **********
+	Note: Username is nullable!
+	Note: Password is nullable!
+	// **********
+
+	// **********
+	[System.ComponentModel.DataAnnotations.MinLength
+		(length: SeedWork.Constant.FixedLength.DatabasePassword,
+		ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+		ErrorMessageResourceName = nameof(Resources.Messages.Validations.MinLength))]
+
+	[System.ComponentModel.DataAnnotations.MaxLength
+		(length: SeedWork.Constant.FixedLength.DatabasePassword,
+		ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+		ErrorMessageResourceName = nameof(Resources.Messages.Validations.MaxLength))]
+
+	// نکته مهم: دستور ذیل نباید نوشته شود
+	// ها می‌باشد ViewModel دستور ذیل مربوط به
+	//[System.ComponentModel.DataAnnotations.RegularExpression
+	//	(pattern: SeedWork.Constant.RegularExpression.Password,
+	//	ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+	//	ErrorMessageResourceName = nameof(Resources.Messages.Validations.Password))]
+	public string? Password { get; set; }
+	// **********
+
+	// **********
+	[System.ComponentModel.DataAnnotations.RegularExpression
+		(pattern: SeedWork.Constant.RegularExpression.EmailAddress,
+		ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+		ErrorMessageResourceName = nameof(Resources.Messages.Validations.EmailAddress))]
+	public string EmailAddress { get; set; }
+	// **********
+
+	// **********
+	public System.Guid EmailAddressVerificationKey { get; [private] set; }
+	// **********
+
+	// **********
+	[System.ComponentModel.DataAnnotations.MaxLength
+		(length: SeedWork.Constant.FixedLength.CellPhoneNumber,
+		ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+		ErrorMessageResourceName = nameof(Resources.Messages.Validations.MaxLength))]
+
+	[System.ComponentModel.DataAnnotations.RegularExpression
+		(pattern: SeedWork.Constant.RegularExpression.CellPhoneNumber,
+		ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+		ErrorMessageResourceName = nameof(Resources.Messages.Validations.CellPhoneNumber))]
+	public string? CellPhoneNumber { get; set; }
+	// **********
+
+	// **********
+	[System.ComponentModel.DataAnnotations.MinLength
+		(length: SeedWork.Constant.MinLength.CellPhoneNumberVerificationKey,
+		ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+		ErrorMessageResourceName = nameof(Resources.Messages.Validations.MinLength))]
+
+	[System.ComponentModel.DataAnnotations.MaxLength
+		(length: SeedWork.Constant.MaxLength.CellPhoneNumberVerificationKey,
+		ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+		ErrorMessageResourceName = nameof(Resources.Messages.Validations.MaxLength))]
+	public string? CellPhoneNumberVerificationKey { get; private set; }
+	// **********
+
+	// **********
+	public virtual System.Collections.Generic.IList<UserLogin> UserLogins { get; private set; }
+	// **********
+
+3- UserConfiguration.cs
+
+	// **********
+	- Index / Unique null fields!
+	// **********
+
+	// **********
+	Password =
+		Dtat.Hashing.GetSha256(text: "1234512345"),
+	// **********
+
+4- UserLogin.cs
+
+5- UserLoginConfiguration.cs
+
+6- DatabaseContext.cs
+
+		public Microsoft.EntityFrameworkCore.DbSet<Domain.User> Users { get; set; }
+
+		public Microsoft.EntityFrameworkCore.DbSet<Domain.UserLogin> UserLogins { get; set; }
+
+7- Program.cs
+**************************************************

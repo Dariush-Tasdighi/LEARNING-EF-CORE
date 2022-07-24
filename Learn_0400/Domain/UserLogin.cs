@@ -47,7 +47,7 @@
 		[System.ComponentModel.DataAnnotations.RegularExpression
 			(pattern: SeedWork.Constant.RegularExpression.IP,
 			ErrorMessageResourceType = typeof(Resources.Messages.Validations),
-			ErrorMessageResourceName = nameof(Resources.Messages.Validations.EmailAddress))]
+			ErrorMessageResourceName = nameof(Resources.Messages.Validations.IP))]
 		public string UserIP { get; set; }
 		// **********
 	}
