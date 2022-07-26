@@ -13,12 +13,25 @@
 			SuperUserId = new(g: "CC75D635-EF6D-4E86-907A-BC532CDC3ACC");
 		#endregion /Static(s)
 
-		public User(string emailAddress, System.Guid roleId) : base()
+		//public User(string emailAddress, System.Guid roleId) : base()
+		//{
+		//	//SetUpdateDateTime();
+		//	UpdateDateTime = InsertDateTime;
+
+		//	RoleId = roleId;
+		//	EmailAddress = emailAddress;
+		//	EmailAddressVerificationKey = System.Guid.NewGuid();
+
+		//	UserLogins =
+		//		new System.Collections.Generic.List<UserLogin>();
+		//}
+
+		public User(string emailAddress) : base()
 		{
 			//SetUpdateDateTime();
 			UpdateDateTime = InsertDateTime;
 
-			RoleId = roleId;
+			//RoleId = roleId;
 			EmailAddress = emailAddress;
 			EmailAddressVerificationKey = System.Guid.NewGuid();
 
@@ -29,14 +42,21 @@
 		// **********
 		// **********
 		// **********
+		//[System.ComponentModel.DataAnnotations.Display
+		//	(ResourceType = typeof(Resources.DataDictionary),
+		//	Name = nameof(Resources.DataDictionary.Role))]
+
+		//[System.ComponentModel.DataAnnotations.Required
+		//	(ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+		//	ErrorMessageResourceName = nameof(Resources.Messages.Validations.Required))]
+		//public System.Guid RoleId { get; set; }
+		// **********
+
+		// **********
 		[System.ComponentModel.DataAnnotations.Display
 			(ResourceType = typeof(Resources.DataDictionary),
 			Name = nameof(Resources.DataDictionary.Role))]
-
-		[System.ComponentModel.DataAnnotations.Required
-			(ErrorMessageResourceType = typeof(Resources.Messages.Validations),
-			ErrorMessageResourceName = nameof(Resources.Messages.Validations.Required))]
-		public System.Guid RoleId { get; set; }
+		public System.Guid? RoleId { get; set; }
 		// **********
 
 		// **********

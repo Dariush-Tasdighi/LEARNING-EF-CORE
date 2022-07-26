@@ -44,10 +44,19 @@
 			// **************************************************
 			// **************************************************
 			// **************************************************
+			//builder
+			//	.HasMany(current => current.Users)
+			//	.WithOne(other => other.Role)
+			//	.IsRequired(required: true)
+			//	.HasForeignKey(other => other.RoleId)
+			//	.OnDelete(deleteBehavior:
+			//		Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction)
+			//	;
+
 			builder
 				.HasMany(current => current.Users)
 				.WithOne(other => other.Role)
-				.IsRequired(required: true)
+				.IsRequired(required: false)
 				.HasForeignKey(other => other.RoleId)
 				.OnDelete(deleteBehavior:
 					Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction)
@@ -59,27 +68,27 @@
 			// **************************************************
 			// **************************************************
 			// **************************************************
-			var role =
-				new Domain.Role(name: "کاربر معمولی")
-				{
-					//Id,
-					//Name,
-					//Users
-					//InsertDateTime,
-					//UpdateDateTime,
+			//var role =
+			//	new Domain.Role(name: "کاربر معمولی")
+			//	{
+			//		//Id,
+			//		//Name,
+			//		//Users
+			//		//InsertDateTime,
+			//		//UpdateDateTime,
 
-					Ordering = 0,
+			//		Ordering = 0,
 
-					IsActive = true,
-					IsSystemic = true,
-					IsUndeletable = true,
+			//		IsActive = true,
+			//		IsSystemic = true,
+			//		IsUndeletable = true,
 
-					Description = null,
-				};
+			//		Description = null,
+			//	};
 
-			role.SetId(id: Domain.Role.DefaultRoleId);
+			////role.SetId(id: Domain.Role.DefaultRoleId);
 
-			builder.HasData(data: role);
+			//builder.HasData(data: role);
 			// **************************************************
 			// **************************************************
 			// **************************************************

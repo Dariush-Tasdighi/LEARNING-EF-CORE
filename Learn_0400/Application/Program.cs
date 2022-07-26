@@ -100,19 +100,19 @@ namespace Application
 				databaseContext =
 					new Data.DatabaseContext();
 
-				var defaultRole =
-					await
-					databaseContext.Roles
-					.Where(current => current.Id == Domain.Role.DefaultRoleId)
-					.FirstOrDefaultAsync();
+				//var defaultRole =
+				//	await
+				//	databaseContext.Roles
+				//	.Where(current => current.Id == Domain.Role.DefaultRoleId)
+				//	.FirstOrDefaultAsync();
 
-				if (defaultRole == null)
-				{
-					System.Console.WriteLine
-						(value: $"There is not any default role!");
+				//if (defaultRole == null)
+				//{
+				//	System.Console.WriteLine
+				//		(value: $"There is not any default role!");
 
-					return;
-				}
+				//	return;
+				//}
 
 				var emailAddress =
 					"DariushTasdighi@GMail.com";
@@ -131,8 +131,11 @@ namespace Application
 					return;
 				}
 
+				//var user =
+				//	new Domain.User(emailAddress: emailAddress, roleId: Domain.Role.DefaultRoleId)
+
 				var user =
-					new Domain.User(emailAddress: emailAddress, roleId: Domain.Role.DefaultRoleId)
+					new Domain.User(emailAddress: emailAddress)
 					{
 						IsActive = true,
 						IsEmailAddressVerified = true,

@@ -109,8 +109,11 @@
 			// **************************************************
 			// **************************************************
 			// **************************************************
+			//var user =
+			//	new Domain.User(emailAddress: "DariushT@GMail.com", roleId: Domain.Role.DefaultRoleId)
+
 			var user =
-				new Domain.User(emailAddress: "DariushT@GMail.com", roleId: Domain.Role.DefaultRoleId)
+				new Domain.User(emailAddress: "DariushT@GMail.com")
 				{
 					//Id,
 					//Role,
