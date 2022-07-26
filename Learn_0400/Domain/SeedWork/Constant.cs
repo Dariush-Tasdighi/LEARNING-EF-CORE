@@ -13,9 +13,8 @@
 			}
 
 			public const int NationalCode = 10;
-			public const int DatabasePassword = 44;
-
 			public const int CellPhoneNumber = 11;
+			public const int DatabasePassword = 44;
 		}
 
 		public static class MinLength : object
